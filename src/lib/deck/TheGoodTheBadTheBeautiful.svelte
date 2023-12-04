@@ -6,8 +6,11 @@
   <div class="box">
     <h1>CSS</h1>
     <p>
-      The Good, The Bad, The <span class="relative">
-        <span class="ugly">Ugly</span><span class="fragment beautiful">Beautiful</span>
+      <span class="fragment">The Good,</span> <span class="fragment">The Bad,</span>
+      <span class="fragment">
+        The <span class="relative">
+          <span class="ugly">Ugly</span><span class="fragment beautiful lime">Beautiful</span>
+        </span>
       </span>
     </p>
   </div>
@@ -17,10 +20,6 @@
   .box {
     --transition-time: 0.5s;
     transform: scale(1.5);
-  }
-
-  .relative {
-    position: relative;
   }
 
   .ugly {
@@ -35,7 +34,7 @@
     .ugly {
       transition: all var(--transition-time) ease-in-out var(--transition-time);
       transform: translateY(-90%) rotate(-10deg);
-      color: hsl(0, 100%, 70%);
+      color: var(--color-red);
       margin: 0;
       padding-inline: 8px;
       &::after {
@@ -54,7 +53,6 @@
   .beautiful {
     font-family: var(--font-serif);
     font-style: italic;
-    color: var(--secondary-color);
     max-width: 0;
     opacity: 0;
     &:is(.visible) {
