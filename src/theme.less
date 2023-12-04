@@ -17,11 +17,16 @@ section.has-light-background h6 {
  * GLOBAL STYLES
  *********************************************/
 :root {
-  --secondary-color: hsl(140, 90%, 60%);
+  --color-lime: hsl(140, 90%, 60%);
+  --color-red: hsl(0, 100%, 70%);
+  --primary-color: var(--color-lime);
+  --secondary-color: var(--color-red);
+
   --font-sans: 'Public Sans', sans-serif;
   --font-serif: 'Literata Variable', serif;
   --font-heading: 'Passion One', sans-serif;
   --font-mono: 'Source Code Pro', monospace;
+
   --r-background-color: #191919;
   --r-main-font: var(--font-serif);
   --r-main-font-size: 36px;
@@ -29,7 +34,7 @@ section.has-light-background h6 {
   --r-block-margin: 0;
   --r-heading-margin: 0;
   --r-heading-font: var(--font-heading);
-  --r-heading-color: var(--secondary-color);
+  --r-heading-color: var(--primary-color);
   --r-heading-line-height: 1;
   --r-heading-letter-spacing: normal;
   --r-heading-text-transform: none;
@@ -44,7 +49,7 @@ section.has-light-background h6 {
   // --r-link-color: #42affa;
   // --r-link-color-dark: #068de9;
   // --r-link-color-hover: #8dcffc;
-  --r-link-color: var(--secondary-color);
+  --r-link-color: var(--primary-color);
   --r-link-color-dark: #068de9;
   --r-link-color-hover: #8dcffc;
   --r-selection-background-color: rgba(66, 175, 250, 0.75);
@@ -369,23 +374,4 @@ section.has-light-background h6 {
   .backgrounds {
     background-color: var(--r-background-color);
   }
-}
-
-// global helpers
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.box {
-  padding: 2rem;
-  border: 1px solid var(--secondary-color);
-  border-radius: 8px;
-  width: max-content;
-  margin-inline: auto;
-}
-
-.lime {
-  color: var(--secondary-color);
 }
