@@ -1,13 +1,23 @@
 <script lang="ts">
+	import Code from './Code.svelte';
 	import Slide from './Slide.svelte';
+	import snippet from './Code.svelte?raw';
+
+	import TheGoodTheBadTheBeautiful from './TheGoodTheBadTheBeautiful.svelte';
+	import HowToLiveLaughLove from './HowToLiveLaughLove.svelte';
 </script>
 
-<Slide animate>
-	<h1>Animate</h1>
-</Slide>
+<TheGoodTheBadTheBeautiful />
+<HowToLiveLaughLove />
 
 <Slide animate>
-	<h1 style="color: red; margin-top: 3rem">Animate</h1>
+	<Slide animate>
+		<h1>Animate</h1>
+	</Slide>
+
+	<Slide animate>
+		<Code>{snippet}</Code>
+	</Slide>
 </Slide>
 
 <Slide animate>
@@ -16,6 +26,6 @@
 	</Slide>
 
 	<Slide animate>
-		<h1 style="color: red; margin-top: 3rem">Animate</h1>
+		<Code>{snippet}</Code>
 	</Slide>
 </Slide>
