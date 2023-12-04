@@ -3,24 +3,32 @@
   import LiveLaughLove from './LiveLaughLove.svelte';
 </script>
 
-<Slide animate>
+<Slide>
   <div class="row">
-    <h4>or:</h4>
-    <h4>How to</h4>
+    <h3>or:</h3>
+    <h3>How to</h3>
     <LiveLaughLove />
-    <h4>in CSS</h4>
+    <h3>in CSS</h3>
   </div>
 </Slide>
 
 <style lang="postcss">
-  h4 {
+  .row {
+    transform: scale(1.25);
+  }
+
+  h3 {
     color: var(--secondary-color);
     &:first-child {
       margin-right: 1rem;
       color: white;
+      font-family: var(--font-serif);
+      font-style: italic;
+      transform: translateY(-1px);
+      font-size: 0.8em;
     }
     &:last-child {
-      margin-left: -1rem;
+      margin-left: -0.5rem;
       margin-right: 3rem;
     }
   }
