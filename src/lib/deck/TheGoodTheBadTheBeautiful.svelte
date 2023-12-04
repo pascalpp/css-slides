@@ -2,21 +2,12 @@
   import Slide from './Slide.svelte';
 </script>
 
-<section data-transition="fade">
-  <div class="box">
-    <h1>CSS</h1>
-    <p>
-      The Good, The Bad, The&nbsp;<span class="relative"><span class="ugly">Ugly</span></span>
-    </p>
-  </div>
-</section>
-
-<section data-transition="fade">
+<section>
   <div class="box">
     <h1>CSS</h1>
     <p>
       The Good, The Bad, The <span class="relative">
-        <span class="ugly crossed-out">Ugly</span><span class="beautiful">Beautiful</span>
+        <span class="ugly">Ugly</span><span class="fragment beautiful">Beautiful</span>
       </span>
     </p>
   </div>
@@ -24,6 +15,7 @@
 
 <style lang="less">
   .box {
+    --transition-time: 0.5s;
     transform: scale(1.5);
   }
 
@@ -33,10 +25,17 @@
 
   .ugly {
     position: absolute;
-    &.crossed-out {
-      bottom: 85%;
-      left: -5px;
-      transform: rotate(-10deg);
+    transition: all var(--transition-time) ease-in-out var(--transition-time);
+    &::after {
+      content: '';
+      position: absolute;
+      transition: all var(--transition-time) ease-in-out var(--transition-time);
+    }
+  }
+
+  .box:has(.beautiful.visible) {
+    .ugly {
+      transform: translateY(-90%) rotate(-10deg);
       color: hsl(0, 100%, 70%);
       margin: 0;
       padding-inline: 8px;
@@ -56,5 +55,14 @@
     font-family: var(--font-serif);
     font-style: italic;
     color: var(--secondary-color);
+    max-width: 0;
+    opacity: 0;
+    transition:
+      max-width var(--transition-time) ease-in-out 0s,
+      opacity var(--transition-time) ease-in-out calc(var(--transition-time) * 2);
+    &:is(.visible) {
+      max-width: 200px;
+      opacity: 1;
+    }
   }
 </style>
