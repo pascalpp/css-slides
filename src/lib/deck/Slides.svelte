@@ -9,6 +9,8 @@
 	import 'reveal.js/dist/theme/black.css';
 	import 'reveal.js/plugin/highlight/monokai.css';
 
+	import Presentation from './Presentation.svelte';
+
 	onMount(() => {
 		const deck = new Reveal({
 			autoAnimateEasing: 'ease',
@@ -32,7 +34,6 @@
 
 <div class="reveal">
 	<div class="slides">
-		<section>slide 1</section>
-		<section>slide 2</section>
+		<Presentation />
 	</div>
 </div>
