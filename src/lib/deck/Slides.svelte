@@ -1,36 +1,32 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
-	import Reveal from 'reveal.js';
-	import Markdown from 'reveal.js/plugin/markdown/markdown';
-	import Highlight from 'reveal.js/plugin/highlight/highlight';
-	import Notes from 'reveal.js/plugin/notes/notes';
+  import Reveal from 'reveal.js';
+  import Markdown from 'reveal.js/plugin/markdown/markdown';
+  import Highlight from 'reveal.js/plugin/highlight/highlight';
+  import Notes from 'reveal.js/plugin/notes/notes';
 
-	import Presentation from './Presentation.svelte';
+  import Presentation from './Presentation.svelte';
 
-	onMount(() => {
-		const deck = new Reveal({
-			autoAnimateEasing: 'ease',
-			autoAnimateDuration: 1,
-			hash: true,
-			controls: true,
-			progress: true
-		});
+  onMount(() => {
+    const deck = new Reveal({
+      plugins: [Markdown, Highlight, Notes],
+      hash: true,
+      progress: true,
+      controls: true,
+    });
 
-		deck.initialize({
-			controls: true,
-			progress: true,
-			center: true,
-			hash: true,
-			slideNumber: true,
-			transition: 'slide',
-			plugins: [Markdown, Highlight, Notes]
-		});
-	});
+    deck.initialize();
+
+    deck.on('fragmentshown', (event) => {
+      console.log('fragmentshown', event);
+      deck.layout();
+    });
+  });
 </script>
 
 <div class="reveal">
-	<div class="slides">
-		<Presentation />
-	</div>
+  <div class="slides">
+    <Presentation />
+  </div>
 </div>
