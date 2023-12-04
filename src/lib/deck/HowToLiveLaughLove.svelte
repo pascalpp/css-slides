@@ -1,25 +1,28 @@
 <script lang="ts">
   import Slide from './Slide.svelte';
-  import LiveLaughLove from './LiveLaughLove.svelte';
+  import LiveLaughLove from './live-laugh-love.svg?component';
 </script>
 
 <Slide>
   <div class="row">
-    <h3>or:</h3>
-    <h3>How to</h3>
+    <h3 class="or">or:</h3>
+    <h3 class="fragment">How to</h3>
     <LiveLaughLove />
-    <h3>in CSS</h3>
+    <h3 class="fragment in-css">in CSS</h3>
+    <span class="relative">
+      <h4 class="fragment blessed">#blessed</h4>
+    </span>
   </div>
 </Slide>
 
-<style lang="postcss">
+<style lang="less">
   .row {
     transform: scale(1.25);
+    position: relative;
   }
 
   h3 {
-    color: var(--secondary-color);
-    &:first-child {
+    &.or {
       margin-right: 1rem;
       color: white;
       font-family: var(--font-serif);
@@ -27,9 +30,46 @@
       transform: translateY(-1px);
       font-size: 0.8em;
     }
-    &:last-child {
-      margin-left: -0.5rem;
+    &.in-css {
+      margin-left: -0.75rem;
       margin-right: 3rem;
+    }
+  }
+
+  .blessed {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    transform: translateX(1rem) translateY(5vh) rotate(8deg);
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-red);
+    border-radius: 4px;
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      height: 75%;
+      aspect-ratio: 1;
+      transform-origin: bottom center;
+      transform: translateX(-3px) translateY(0.5px) rotate(-45deg);
+      background-color: var(--color-red);
+      border-radius: inherit;
+      z-index: -1;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 50%;
+      transform: translateX(-12px) translateY(-50%);
+      height: 12px;
+      aspect-ratio: 1;
+      background-color: black;
+      border-radius: 50%;
     }
   }
 </style>
