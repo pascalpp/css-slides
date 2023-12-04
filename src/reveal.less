@@ -321,6 +321,7 @@ html.reveal-full-page {
   font-size: inherit;
   visibility: hidden;
   opacity: 0;
+  appearance: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -893,6 +894,7 @@ html.reveal-full-page {
   z-index: 1;
   border-radius: 4px;
   box-shadow: 0 95px 25px rgba(0, 0, 0, 0.2);
+  transform: translateZ(-90px) rotateX(65deg);
   -webkit-transform: translateZ(-90px) rotateX(65deg);
 }
 .reveal.page .slides > section.stack {
@@ -1159,6 +1161,7 @@ html.reveal-full-page {
   perspective: 700px;
 }
 .reveal.overview .slides {
+  transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
 }
 .reveal.overview .slides section {
@@ -1192,6 +1195,7 @@ html.reveal-full-page {
 }
 .reveal.overview .backgrounds {
   perspective: inherit;
+  transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
 }
 .reveal.overview .backgrounds .slide-background {
@@ -1275,7 +1279,7 @@ html.reveal-full-page {
   box-sizing: border-box;
 }
 .reveal > .overlay header a {
-  display: inline-block;
+  display: block;
   width: 40px;
   height: 40px;
   line-height: 36px;
@@ -1774,6 +1778,7 @@ html.reveal-full-page {
   background-color: rgba(var(--r-overlay-element-bg-color), 1);
 }
 html.reveal-print * {
+  print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
 html.reveal-print {
