@@ -20,7 +20,7 @@
   function onFragmentShown(event: Event) {
     const fragmentEvent = event as FragmentEvent;
     console.log('fragmentshown', event);
-    if (fragmentEvent.fragment?.classList.contains('grow-note')) {
+    if (fragmentEvent.fragment.classList.contains('grow-note')) {
       timer = setInterval(changeWidth, 1500);
     } else {
       clearInterval(timer);
@@ -40,14 +40,19 @@
 <section data-transition="zoom-in slide-out">
   <Browser title="Flexbox: grow and shrink" {width} on:click={changeWidth}>
     <div class="page">
-      <h2>flex-grow & flex-shrink</h2>
-      <div class="box panels fragment" data-fragment-index="1">
-        <div class="pane left fragment" data-fragment-index="3">
+      <div class="intro">
+        <h2>flex-grow & flex-shrink</h2>
+        <p class="fragment" data-fragment-index="10">Control how flex children share space.</p>
+        <p class="fragment" data-fragment-index="11">Let’s build a panel layout!</p>
+      </div>
+
+      <div class="box panels fragment" data-fragment-index="10">
+        <div class="pane left fragment" data-fragment-index="30">
           <div class="label">Sidebar</div>
-          <div class="fragment pane-style-1" data-fragment-index="5">
+          <div class="fragment pane-style-1" data-fragment-index="50">
             <Code>{`width: 300px;`}</Code>
           </div>
-          <div class="fragment pane-style-2" data-fragment-index="60">
+          <div class="fragment pane-style-2" data-fragment-index="600">
             <Code>
               {`
                 width: 300px;
@@ -56,21 +61,21 @@
             </Code>
           </div>
         </div>
-        <div class="pane right fragment" data-fragment-index="4">
+        <div class="pane right fragment" data-fragment-index="40">
           <div class="label">Detail</div>
-          <div class="fragment" data-fragment-index="6">
+          <div class="fragment" data-fragment-index="60">
             <Code>{`flex-grow: 1;`}</Code>
-            <div class="box wrapper fragment grow-note" data-fragment-index="7">
-              <p>Detail pane consumes any available space, even as viewport changes size.</p>
+            <div class="box wrapper fragment grow-note" data-fragment-index="70">
+              <p>This pane consumes any<br />available space, even as<br />viewport changes size.</p>
             </div>
-            <div class="fragment wide-content" data-fragment-index="8">
-              <p>Suppose some “wide content” is added, squeezing our sidebar.</p>
-              <p class="fragment" data-fragment-index="9">We can apply flex-shrink to fix this.</p>
-              <p class="fragment" data-fragment-index="61">Fixed!</p>
+            <div class="fragment wide-content" data-fragment-index="80">
+              <p>Suppose some “wide content” is added to the page, squeezing our sidebar.</p>
+              <p class="fragment" data-fragment-index="90">We can apply flex-shrink to fix this.</p>
+              <p class="fragment" data-fragment-index="601">Now the sidebar gets the space it wants.</p>
             </div>
           </div>
         </div>
-        <div class="fragment flex-row-code" data-fragment-index="2">
+        <div class="fragment flex-row-code" data-fragment-index="20">
           <Code>
             {`
             display: flex;
@@ -88,7 +93,7 @@
     padding: 1rem;
     height: 55vh;
     position: relative;
-    h2 {
+    .intro {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -96,7 +101,7 @@
       transform: translateX(-50%) translateY(-50%);
     }
     &:has(.panels .fragment.visible) {
-      h2 {
+      .intro {
         display: none;
       }
     }
@@ -173,8 +178,7 @@
     }
 
     .grow-note {
-      max-width: 370px;
-      padding: 0.5em 1em;
+      padding: 0.75em 1em;
       margin: 0 auto;
       margin-top: 2rem;
       font-size: 0.8em;
@@ -192,14 +196,20 @@
     }
 
     .wide-content {
-      max-height: 0;
+      height: 3.9em;
+      &:has(.fragment.visible) {
+        height: auto;
+      }
+      overflow: hidden;
       max-width: 0;
       padding: 1em;
-      overflow: hidden;
-      transition: all 1s ease-in-out;
+      opacity: 0;
+      font-size: 0.9em;
+      transition: none;
       &:is(.visible) {
+        transition: all 1s ease-in-out;
+        opacity: 1;
         max-width: 100vw;
-        max-height: 100vh;
       }
 
       p + p {
