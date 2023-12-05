@@ -38,6 +38,7 @@
     "@fontsource/manrope": "^5.0.17",
     "@fontsource/passion-one": "^5.0.17",
     "@types/reveal.js": "^4.4.8",
+    "autosize": "^6.0.1",
     "reveal.js": "^5.0.2"
   }
 }
