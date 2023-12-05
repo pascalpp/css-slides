@@ -9,6 +9,7 @@
   import ContainerQueriesUsage from './ContainerQueriesUsage.svelte';
   import FlexboxHeight from './FlexboxHeight.svelte';
   import FlexboxBasics from './FlexboxBasics.svelte';
+  import FlexboxGrowShrink from './FlexboxGrowShrink.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
@@ -16,6 +17,7 @@
 
 <section>
   <FlexboxBasics />
+  <FlexboxGrowShrink />
   <FlexboxHeight />
 </section>
 
