@@ -1,7 +1,8 @@
 <script lang="ts">
   import '../app.less';
   import { onMount } from 'svelte';
-  import Slides from '$lib/deck/Slides.svelte';
+  import Reveal from '$lib/deck/Reveal.svelte';
+  import Presentation from '$lib/deck/Presentation.svelte';
 
   let timer = 0;
 
@@ -22,4 +23,6 @@
   <title>Slides</title>
 </svelte:head>
 
-<Slides />
+<Reveal>
+  <Presentation />
+</Reveal>

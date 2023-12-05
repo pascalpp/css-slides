@@ -6,8 +6,6 @@
   import Highlight from 'reveal.js/plugin/highlight/highlight';
   import Notes from 'reveal.js/plugin/notes/notes';
 
-  import Presentation from './Presentation.svelte';
-
   onMount(() => {
     const deck = new Reveal({
       plugins: [Markdown, Highlight, Notes],
@@ -20,13 +18,12 @@
 
     deck.on('fragmentshown', (event) => {
       console.log('fragmentshown', event);
-      deck.layout();
     });
   });
 </script>
 
 <div class="reveal">
   <div class="slides">
-    <Presentation />
+    <slot />
   </div>
 </div>
