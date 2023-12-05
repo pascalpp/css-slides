@@ -1,8 +1,9 @@
 <script lang="ts">
   export let title = 'Browser';
+  export let width = '100%';
 </script>
 
-<div class="browser">
+<div class="browser" style="--browser-width: {width}">
   <nav>
     <div class="buttons">
       <button class="button close" on:click data-button="close" />
@@ -26,7 +27,8 @@
 <style lang="less">
   .browser {
     background-color: hsl(0, 0%, 80%);
-    width: 100%;
+    width: var(--browser-width, 100%);
+    transition: width 0.5s ease-in-out;
     border: 1px solid black;
     border-radius: 8px;
     overflow: hidden;
