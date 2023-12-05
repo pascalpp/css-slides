@@ -91,12 +91,12 @@
     align-items: flex-end;
   }
 
-  ul:hover {
-    color: #666;
-    li:hover {
-      color: #fff;
-    }
-  }
+  // ul:hover {
+  //   color: #666;
+  //   li:hover {
+  //     color: #fff;
+  //   }
+  // }
 
   li + li {
     margin-top: 1rem;
