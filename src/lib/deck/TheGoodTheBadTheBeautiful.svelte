@@ -3,7 +3,7 @@
 </script>
 
 <section>
-  <div class="box">
+  <div class="box wrapper">
     <h1>CSS</h1>
     <p>
       <span class="fragment">The Good,</span> <span class="fragment">The Bad,</span>
