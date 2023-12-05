@@ -65,17 +65,29 @@
                       >{`<div class="container">
   <div class="cards">…</div>
 </div>`}</Code>
-                    <p class="small">Or use the :host element of your Angular component*</p>
+                    <p class="small">Or use the :host element of your Angular component.*</p>
                   </div>
                   <div class="fragment custom exclusive">
                     <h2>Usage</h2>
                     <p>2. Apply container styles</p>
-                    <Code id="container-css" lines="2-3"
+                    <Code id="container-css" lines="1-4"
                       >{`.container {
   container-name: kittens;
   container-type: inline-size;
-}`}</Code>
-                    <p class="fragment small">Use <code>inline-size</code> to query width</p>
+}
+
+@container kittens (inline-size <= 640px) {
+  .cards {
+    flex-direction: column;
+  }
+}
+`}</Code>
+                    <p class="fragment small custom exclusive">
+                      Use a unique, descriptive <code>container-name</code>.
+                    </p>
+                    <p class="fragment small custom exclusive">
+                      Use <code>inline-size</code> to query container width.
+                    </p>
                   </div>
                   <div class="fragment custom exclusive">
                     <h2>Usage</h2>
@@ -86,12 +98,13 @@
   container-type: inline-size;
 }
 
-@container kittens (inline-size <= 300px) {
+@container kittens (inline-size <= 640px) {
   .cards {
     flex-direction: column;
   }
 }
 `}</Code>
+                    <p class="fragment small">Cards switch to a column when the container is narrow.</p>
                   </div>
                 </div>
               </div>
