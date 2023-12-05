@@ -1,24 +1,26 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, setContext } from 'svelte';
 
-  import Reveal from 'reveal.js';
+  import Reveal, { type Api } from 'reveal.js';
   import Markdown from 'reveal.js/plugin/markdown/markdown';
   import Highlight from 'reveal.js/plugin/highlight/highlight';
   import Notes from 'reveal.js/plugin/notes/notes';
 
+  const context: Record<string, null | Api> = {
+    reveal: null,
+  };
+  setContext('reveal', context);
+
   onMount(() => {
-    const deck = new Reveal({
+    const reveal = new Reveal({
       plugins: [Markdown, Highlight, Notes],
       hash: true,
       progress: true,
       controls: true,
     });
 
-    deck.initialize();
-
-    deck.on('fragmentshown', (event) => {
-      console.log('fragmentshown', event);
-    });
+    reveal.initialize();
+    context.reveal = reveal;
   });
 </script>
 
