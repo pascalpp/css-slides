@@ -3,7 +3,7 @@
   "tabWidth": 2,
   "singleQuote": true,
   "trailingComma": "es5",
-  "svelteBracketNewLine": true,
+  "svelteBracketNewLine": false,
   "htmlWhitespaceSensitivity": "css",
   "printWidth": 120,
   "plugins": ["prettier-plugin-svelte"],
