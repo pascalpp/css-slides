@@ -2065,3 +2065,15 @@ html.reveal-print .aria-status {
     color: inherit !important;
   }
 }
+
+.fragment.exclusive {
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  &:is(.current-fragment),
+  &:has(.current-fragment) {
+    max-height: 100vh;
+    opacity: 1;
+  }
+}
