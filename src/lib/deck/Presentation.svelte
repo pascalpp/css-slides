@@ -6,11 +6,13 @@
   import TheGoodTheBadTheBeautiful from './TheGoodTheBadTheBeautiful.svelte';
   import HowToLiveLaughLove from './HowToLiveLaughLove.svelte';
   import ContainerQueries from './ContainerQueries.svelte';
+  import Flexbox from './Flexbox.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
 <HowToLiveLaughLove />
 
+<Flexbox />
 <ContainerQueries />
 
 <Slide animate>
