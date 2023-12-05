@@ -4,20 +4,34 @@
 </script>
 
 <Slide>
-  <div class="row">
-    <h3 class="or">or:</h3>
-    <h3 class="fragment">How to</h3>
-    <LiveLaughLove />
-    <h3 class="fragment in-css">in CSS</h3>
-    <span class="relative">
-      <h4 class="fragment blessed">#blessed</h4>
-    </span>
+  <div class="column">
+    <div class="row">
+      <h3 class="or">or:</h3>
+      <h3 class="fragment">How to</h3>
+      <LiveLaughLove />
+      <h3 class="fragment in-css">in CSS</h3>
+      <span class="relative">
+        <h4 class="fragment blessed">#blessed</h4>
+        <h4 class="fragment vomit">🤮</h4>
+      </span>
+    </div>
+    <div class="name">
+      <h4 class="fragment">Pascal · UI Developer · Brooklyn</h4>
+    </div>
   </div>
 </Slide>
 
 <style lang="less">
-  .row {
+  .column {
     transform: scale(1.25);
+    gap: 0.5rem;
+  }
+
+  .name {
+    margin-left: 4rem;
+  }
+
+  .row {
     position: relative;
   }
 
@@ -71,5 +85,13 @@
       background-color: black;
       border-radius: 50%;
     }
+  }
+
+  .vomit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    transform: translateX(1rem) translateY(10vh) rotate(8deg);
   }
 </style>
