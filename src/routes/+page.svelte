@@ -6,9 +6,14 @@
 
   let timer = 0;
 
-  function checkForAllHidden() {
-    const presentedSlide = document.querySelector('section.present');
-    if (!presentedSlide) document.location.reload();
+  function checkForAllHidden(node: Document | Element = document) {
+    const presentSection = node.querySelector('section.present');
+    if (!presentSection) {
+      document.location.reload();
+    } else {
+      const hasSections = presentSection.querySelector('section');
+      if (hasSections) return checkForAllHidden(presentSection);
+    }
   }
 
   onMount(() => {
