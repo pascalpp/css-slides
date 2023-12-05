@@ -5,7 +5,8 @@
 
   import TheGoodTheBadTheBeautiful from './TheGoodTheBadTheBeautiful.svelte';
   import HowToLiveLaughLove from './HowToLiveLaughLove.svelte';
-  import ContainerQueries from './ContainerQueries.svelte';
+  import ContainerQueriesBasics from './ContainerQueriesBasics.svelte';
+  import ContainerQueriesUsage from './ContainerQueriesUsage.svelte';
   import FlexboxHeight from './FlexboxHeight.svelte';
   import FlexboxBasics from './FlexboxBasics.svelte';
 </script>
@@ -18,7 +19,10 @@
   <FlexboxHeight />
 </section>
 
-<ContainerQueries />
+<section>
+  <ContainerQueriesBasics />
+  <ContainerQueriesUsage />
+</section>
 
 <Slide animate>
   <Slide animate>

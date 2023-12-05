@@ -3,63 +3,48 @@
   import Code from './Code.svelte';
 </script>
 
-<section>
-  <section>
-    <h1>Container Queries</h1>
-    <ul class="fragment">
-      <li>Like media queries</li>
-      <li class="fragment">But viewport-agnostic</li>
-      <li class="fragment">And element-specific</li>
-      <li class="fragment">
-        Stop asking <span class="fragment strike highlight-red semi-fade-out">“How big is the screen?”</span>
-      </li>
-      <li class="fragment">
-        Start asking <span class="fragment grow lime">“How big am I?”</span>
-      </li>
-    </ul>
-  </section>
-  <section data-transition="zoom">
-    <div class="browser-container">
-      <Browser title="Container queries in action">
-        <div class="page">
-          <h3>
-            &nbsp;
-            <span class="fragment wide-browser">Wide browser</span>
-            <span class="fragment narrow-browser">Narrow</span>
-            <span class="fragment sidebar-browser">Sidebar in a wide browser</span>
-            &nbsp;
-          </h3>
-          <div class="panels">
-            <div class="sidebar">
-              <div class="container">
-                <div class="cards">
-                  <div class="card tabby"></div>
-                  <div class="card crowd"></div>
-                  <div class="card cup"></div>
-                </div>
+<section data-transition="zoom">
+  <div class="browser-container">
+    <Browser title="Container queries in action">
+      <div class="page">
+        <h3>
+          &nbsp;
+          <span class="fragment wide-browser">Wide browser</span>
+          <span class="fragment narrow-browser">Narrow</span>
+          <span class="fragment sidebar-browser">Sidebar in a wide browser</span>
+          &nbsp;
+        </h3>
+        <div class="panels">
+          <div class="sidebar">
+            <div class="container">
+              <div class="cards">
+                <div class="card tabby"></div>
+                <div class="card crowd"></div>
+                <div class="card cup"></div>
               </div>
             </div>
-            <div class="detail">
-              <div class="card lion">
-                <div class="usage">
-                  <div class="fragment custom exclusive">
-                    <h2>Re-use mobile layout</h2>
-                    <p>in any ‘narrow’ context</p>
-                  </div>
-                  <div class="fragment custom exclusive">
-                    <h2>Usage</h2>
-                    <p>1. Wrap your node in a container</p>
-                    <Code lines="1,3"
-                      >{`<div class="container">
+          </div>
+          <div class="detail">
+            <div class="card lion">
+              <div class="usage">
+                <div class="fragment custom exclusive">
+                  <h2>Re-use mobile layout</h2>
+                  <p>in any ‘narrow’ context</p>
+                </div>
+                <div class="fragment custom exclusive">
+                  <h2>Usage</h2>
+                  <p>1. Wrap your node in a container</p>
+                  <Code lines="1,3"
+                    >{`<div class="container">
   <div class="cards">…</div>
 </div>`}</Code>
-                    <p class="small">Or use the :host element of your Angular component.*</p>
-                  </div>
-                  <div class="fragment custom exclusive">
-                    <h2>Usage</h2>
-                    <p>2. Apply container styles</p>
-                    <Code id="container-css" lines="1-4"
-                      >{`.container {
+                  <p class="small">Or use the :host element of your Angular component.*</p>
+                </div>
+                <div class="fragment custom exclusive">
+                  <h2>Usage</h2>
+                  <p>2. Apply container styles</p>
+                  <Code id="container-css" lines="1-4"
+                    >{`.container {
   container-name: kittens;
   container-type: inline-size;
 }
@@ -70,18 +55,18 @@
   }
 }
 `}</Code>
-                    <p class="fragment small custom exclusive">
-                      Use a unique, descriptive <code>container-name</code>.
-                    </p>
-                    <p class="fragment small custom exclusive">
-                      Use <code>inline-size</code> to query container width.
-                    </p>
-                  </div>
-                  <div class="fragment custom exclusive">
-                    <h2>Usage</h2>
-                    <p>3. Apply container query</p>
-                    <Code id="container-css" lines="6-10"
-                      >{`.container {
+                  <p class="fragment small custom exclusive">
+                    Use a unique, descriptive <code>container-name</code>.
+                  </p>
+                  <p class="fragment small custom exclusive">
+                    Use <code>inline-size</code> to query container width.
+                  </p>
+                </div>
+                <div class="fragment custom exclusive">
+                  <h2>Usage</h2>
+                  <p>3. Apply container query</p>
+                  <Code id="container-css" lines="6-10"
+                    >{`.container {
   container-name: kittens;
   container-type: inline-size;
 }
@@ -92,25 +77,24 @@
   }
 }
 `}</Code>
-                    <p class="fragment small">Cards switch to a column when the container is narrow.</p>
-                  </div>
+                  <p class="fragment small">Cards switch to a column when the container is narrow.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </Browser>
-    </div>
-    <div class="card narrow-notes">
-      <h3>The old way</h3>
-      <Code lines="true"
-        >{`@media screen and (max-width: 640px) {
+      </div>
+    </Browser>
+  </div>
+  <div class="card narrow-notes">
+    <h3>The old way</h3>
+    <Code lines="true"
+      >{`@media screen and (max-width: 640px) {
   .cards {
     flex-direction: column;
   }
 }`}</Code>
-    </div>
-  </section>
+  </div>
 </section>
 
 <style lang="less">
