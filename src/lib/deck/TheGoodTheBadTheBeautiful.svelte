@@ -3,20 +3,29 @@
 </script>
 
 <section>
-  <div class="box">
-    <h1>CSS</h1>
-    <p>
-      <span class="fragment">The Good,</span> <span class="fragment">The Bad,</span>
-      <span class="fragment">
-        The <span class="relative">
-          <span class="ugly">Ugly</span><span class="fragment beautiful lime">Beautiful</span>
+  <div class="column">
+    <div class="box">
+      <h1>CSS</h1>
+      <p>
+        <span class="fragment">The Good,</span> <span class="fragment">The Bad,</span>
+        <span class="fragment">
+          The <span class="relative">
+            <span class="ugly">Ugly</span><span class="fragment beautiful lime">Beautiful</span>
+          </span>
         </span>
-      </span>
-    </p>
+      </p>
+    </div>
+    <div class="name">
+      <h3 class="fragment">Pascal · UI Developer · Brooklyn</h3>
+    </div>
   </div>
 </section>
 
 <style lang="less">
+  .column {
+    gap: 5rem;
+  }
+
   .box {
     --transition-time: 0.5s;
     transform: scale(1.5);
