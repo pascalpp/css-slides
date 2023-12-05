@@ -44,7 +44,7 @@
 
     .buttons {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       &:last-child {
         visibility: hidden;
         opacity: 0;
