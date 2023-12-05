@@ -1,18 +1,6 @@
 <script lang="ts">
   import Browser from '$lib/components/Browser.svelte';
   import Code from './Code.svelte';
-
-  let narrowBrowser = false;
-  let sidebarBrowser = false;
-
-  function handleClick(event: MouseEvent) {
-    if (!sidebarBrowser && !narrowBrowser) {
-      narrowBrowser = true;
-    } else {
-      narrowBrowser = false;
-      sidebarBrowser = true;
-    }
-  }
 </script>
 
 <section>
@@ -30,9 +18,9 @@
       </li>
     </ul>
   </section>
-  <section data-transition="fade">
+  <section data-transition="zoom">
     <div class="browser-container">
-      <Browser title="Container queries in action" on:click={handleClick}>
+      <Browser title="Container queries in action">
         <div class="page">
           <h3>
             &nbsp;
