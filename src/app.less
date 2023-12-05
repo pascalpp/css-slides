@@ -12,27 +12,41 @@
 @import './theme.less';
 
 // global helpers
-.relative {
-  position: relative;
-}
+.reveal {
+  .relative {
+    position: relative;
+  }
 
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.box {
-  padding: 2rem;
-  border: 1px solid var(--primary-color);
-  border-radius: 8px;
-  width: max-content;
-  margin-inline: auto;
-}
+  .box {
+    padding: 2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    width: max-content;
+    margin-inline: auto;
+  }
 
-.lime {
-  color: var(--color-lime);
-}
-.red {
-  color: var(--color-red);
+  .lime {
+    color: var(--color-lime);
+  }
+  .red {
+    color: var(--color-red);
+  }
+
+  p.small {
+    font-size: 0.6em;
+    padding-block: 1px;
+  }
+
+  p code {
+    font-size: 0.8em;
+    background-color: hsla(0, 100%, 100%, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
 }
