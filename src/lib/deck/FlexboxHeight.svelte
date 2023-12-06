@@ -119,15 +119,15 @@
     <div class="page">
       <div class="panels">
         <div class="pane box left height-100" data-id="left-pane">
-          <div class="chat-header">
+          <div class="chat-header" data-id="chat-header">
             <h2>Chat</h2>
           </div>
-          <div class="chat-tabs">
+          <div class="chat-tabs" data-id="chat-tabs">
             <div class="tab">All</div>
             <div class="tab">Following</div>
             <div class="tab">Unread</div>
           </div>
-          <div class="chat-alert">
+          <div class="chat-alert" data-id="chat-alert">
             <div class="chat-alert-box">
               <p>Your account is about to expire. <button>Renew now!</button></p>
             </div>
@@ -135,6 +135,7 @@
           <ChatBox />
         </div>
         <div class="pane detail">
+          <div class="broken-again-pointer">Text box has been<br />pushed off the page!</div>
           <h2>But what if…</h2>
           <p>…a new element is added?</p>
           <p>
@@ -142,7 +143,124 @@
             <span class="fragment chat-tabs-fragment">or some tabs…</span>
             <span class="fragment chat-alert-fragment">or an alert…</span>
           </p>
-          <p class="fragment">Now the layout is broken again!</p>
+          <p class="fragment broken-again-fragment">Now the layout is broken again!</p>
+        </div>
+      </div>
+    </div>
+  </Browser>
+</section>
+
+<section data-auto-animate>
+  <Browser title="Flexbox: the trouble with height: 100%">
+    <div class="page">
+      <span class="chat-header-fragment visible"></span>
+      <span class="chat-tabs-fragment visible"></span>
+      <span class="chat-alert-fragment visible"></span>
+      <div class="panels">
+        <div class="pane box left height-100" data-id="left-pane">
+          <div class="chat-header" data-id="chat-header">
+            <h2>Chat</h2>
+          </div>
+          <div class="chat-tabs" data-id="chat-tabs">
+            <div class="tab">All</div>
+            <div class="tab">Following</div>
+            <div class="tab">Unread</div>
+          </div>
+          <div class="chat-alert" data-id="chat-alert">
+            <div class="chat-alert-box">
+              <p>Your account is about to expire. <button>Renew now!</button></p>
+            </div>
+          </div>
+          <ChatBox />
+        </div>
+        <div class="pane detail">
+          <h3>There’s got to be a better way!</h3>
+          <div class="box dishes-rabbit"></div>
+        </div>
+      </div>
+    </div>
+  </Browser>
+</section>
+
+<section data-auto-animate>
+  <Browser title="Flexbox: the trouble with height: 100%">
+    <div class="page">
+      <span class="chat-header-fragment visible"></span>
+      <span class="chat-tabs-fragment visible"></span>
+      <span class="chat-alert-fragment visible"></span>
+      <div class="panels">
+        <div class="pane box left" data-id="left-pane">
+          <div class="chat-header" data-id="chat-header">
+            <h2>Chat</h2>
+          </div>
+          <div class="chat-tabs" data-id="chat-tabs">
+            <div class="tab">All</div>
+            <div class="tab">Following</div>
+            <div class="tab">Unread</div>
+          </div>
+          <div class="chat-alert" data-id="chat-alert">
+            <div class="chat-alert-box">
+              <p>Your account is about to expire. <button>Renew now!</button></p>
+            </div>
+          </div>
+          <ChatBox />
+        </div>
+        <div class="pane detail">
+          <h3>Let’s fix it with flex!</h3>
+          <p class="small fragment">1. Make the parent a flex column</p>
+          <div class="fragment flex-column-fragment">
+            <Code lines="2,3">
+              {`
+                .box {
+                  display: flex;
+                  flex-direction: column;
+                }
+              `}
+            </Code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Browser>
+</section>
+
+<section data-auto-animate>
+  <Browser title="Flexbox: the trouble with height: 100%">
+    <div class="page">
+      <span class="chat-header-fragment visible"></span>
+      <span class="chat-tabs-fragment visible"></span>
+      <span class="chat-alert-fragment visible"></span>
+      <div class="panels">
+        <div class="pane left flex-column" data-id="left-pane">
+          <div class="chat-header" data-id="chat-header">
+            <h2>Chat</h2>
+          </div>
+          <div class="chat-tabs" data-id="chat-tabs">
+            <div class="tab">All</div>
+            <div class="tab">Following</div>
+            <div class="tab">Unread</div>
+          </div>
+          <div class="chat-alert" data-id="chat-alert">
+            <div class="chat-alert-box">
+              <p>Your account is about to expire. <button>Renew now!</button></p>
+            </div>
+          </div>
+          <ChatBox />
+        </div>
+        <div class="pane detail">
+          <h3>Let’s fix it with flex!</h3>
+          <p class="small">2. Apply flex-shrink to the fixed-height elements</p>
+          <div class="fragment flex-shrink-fragment">
+            <Code lines="4">
+              {`
+                .chat-header,
+                .chat-tabs,
+                .chat-alert {
+                  flex-shrink: 0;
+                }
+              `}
+            </Code>
+          </div>
         </div>
       </div>
     </div>
@@ -197,11 +315,14 @@
   .panels {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
     gap: 1rem;
     padding: 0;
     width: 100%;
     height: 100%;
+
+    &:has(.pane.flex-column) {
+      overflow: hidden;
+    }
   }
 
   .pane {
@@ -321,5 +442,58 @@
   }
   .page:has(.chat-alert-fragment.visible) .chat-alert {
     display: block;
+  }
+
+  .dishes-rabbit {
+    margin-top: 1rem;
+    background-image: url('./dishes-rabbit.gif');
+    width: 420px;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .broken-again-pointer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    font-size: 16px;
+    transform: translateX(20px) translateY(-20px) rotate(-15deg);
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-red);
+    border-radius: 4px;
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      height: 75%;
+      aspect-ratio: 1;
+      transform-origin: bottom center;
+      transform: translateX(-3px) translateY(0.5px) rotate(-45deg);
+      background-color: var(--color-red);
+      border-radius: inherit;
+      z-index: -1;
+    }
+    display: none;
+  }
+  .page:has(.broken-again-fragment.visible) .broken-again-pointer {
+    display: block;
+  }
+
+  .page:has(.flex-column-fragment.visible) {
+    .panels {
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+    .pane.left {
+      display: flex;
+      flex-direction: column;
+      height: unset;
+      overflow: hidden;
+    }
   }
 </style>
