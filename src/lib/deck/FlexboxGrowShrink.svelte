@@ -39,46 +39,69 @@
 <section data-transition="zoom-in slide-out">
   <Browser title="Flexbox: grow and shrink" {width} on:click={changeWidth}>
     <div class="page">
-      <div class="intro">
+      <div class="intro box wrapper">
         <h2>flex-grow & flex-shrink</h2>
         <p class="fragment" data-fragment-index="10">Control how flex children share space.</p>
         <p class="fragment" data-fragment-index="11">Let’s build a panel layout!</p>
       </div>
 
-      <div class="box panels fragment" data-fragment-index="10">
+      <div class="box panels fragment" data-fragment-index="12">
         <div class="pane left fragment" data-fragment-index="30">
-          <div class="label">Sidebar</div>
+          <div class="label">
+            <h4>Sidebar</h4>
+          </div>
           <div class="fragment pane-style-1" data-fragment-index="50">
-            <Code>{`width: 300px;`}</Code>
+            <Code lines="2">
+              {`
+                .pane.sidebar {
+                  width: 300px;
+                }
+              `}
+            </Code>
           </div>
           <div class="fragment pane-style-2" data-fragment-index="600">
-            <Code>
+            <Code lines="3">
               {`
-                width: 300px;
-                flex-shrink: 0;
+                .pane.sidebar {
+                  width: 300px;
+                  flex-shrink: 0;
+                }
               `}
             </Code>
           </div>
         </div>
         <div class="pane right fragment" data-fragment-index="40">
-          <div class="label">Detail</div>
+          <div class="label">
+            <h4>Detail pane</h4>
+          </div>
           <div class="fragment" data-fragment-index="60">
-            <Code>{`flex-grow: 1;`}</Code>
+            <Code lines="2">
+              {`
+                .pane.detail {
+                  flex-grow: 1;
+                }
+              `}
+            </Code>
             <div class="box wrapper fragment grow-note" data-fragment-index="70">
               <p>This pane consumes any<br />available space, even as<br />viewport changes size.</p>
             </div>
             <div class="fragment wide-content" data-fragment-index="80">
-              <p>Suppose some “wide content” is added to the page, squeezing our sidebar.</p>
-              <p class="fragment" data-fragment-index="90">We can apply flex-shrink to fix this.</p>
-              <p class="fragment" data-fragment-index="601">Now the sidebar gets the space it wants.</p>
+              <p>Suppose some “wide content” is added, squeezing our sidebar.</p>
+              <p class="fragment small" data-fragment-index="90">We can apply flex-shrink to fix this.</p>
+              <p class="fragment small" data-fragment-index="601">Now the sidebar gets the space it wants.</p>
             </div>
           </div>
         </div>
-        <div class="fragment flex-row-code" data-fragment-index="20">
-          <Code>
+        <div class="pane flex-row-code" data-fragment-index="20">
+          <div class="label">
+            <h4>Parent container</h4>
+          </div>
+          <Code fragment index="21">
             {`
-            display: flex;
-            flex-direction: row;
+              .panes {
+                display: flex;
+                flex-direction: row;
+              }
             `}
           </Code>
         </div>
@@ -99,11 +122,15 @@
       white-space: nowrap;
       transform: translateX(-50%) translateY(-50%);
     }
-    &:has(.panels .fragment.visible) {
+    &:has(.panels.visible) {
       .intro {
         display: none;
       }
     }
+  }
+
+  p.small {
+    font-size: 0.8em;
   }
 
   .panels {
@@ -116,10 +143,6 @@
     height: 100%;
     overflow: hidden;
 
-    .flex-row-code {
-      padding-inline: 0.5em;
-    }
-
     &:has(.pane.right .fragment.visible) {
       .flex-row-code {
         display: none;
@@ -128,10 +151,11 @@
   }
 
   .pane {
-    background-color: var(--color-translucent-lime);
+    background-color: rgba(255 255 255 / 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
     padding-top: 5rem;
     position: relative;
     transition: all 0.5s ease-in-out;
@@ -140,10 +164,14 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding-block: 0.5rem;
-      padding-inline: 1rem;
+      padding: 1rem;
     }
   }
+
+  .pane.flex-row-code {
+    background-color: transparent;
+  }
+
   .pane.left {
     display: none;
     &:is(.visible) {
@@ -167,6 +195,7 @@
       }
     }
   }
+
   .pane.right {
     display: none;
     &:is(.visible) {
