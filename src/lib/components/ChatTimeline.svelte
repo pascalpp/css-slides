@@ -26,7 +26,7 @@
       display: flex;
       flex: 1;
       flex-direction: column-reverse;
-      gap: 1em;
+      gap: 0.75em;
       padding: 1em;
     }
   }
