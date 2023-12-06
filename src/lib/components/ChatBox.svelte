@@ -1,14 +1,16 @@
 <script lang="ts" context="module">
-  const now = Date.now();
-  let decriment = 0;
+  let timestamp = Date.now();
 
   function randomTimeInterval() {
-    decriment = decriment - Math.floor(Math.random() * 24) * 60 * 60 * 1000;
-    return decriment;
+    const hours = Math.floor(Math.random() * 6);
+    const minutes = Math.floor(Math.random() * 60);
+    return hours * minutes * 60 * 1000;
   }
 
   function getDate() {
-    return new Date(now - randomTimeInterval());
+    const decriment = randomTimeInterval();
+    timestamp = timestamp - decriment;
+    return new Date(timestamp);
   }
 
   let messages: Message[] = [
