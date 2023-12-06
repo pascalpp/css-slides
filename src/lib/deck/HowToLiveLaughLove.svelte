@@ -11,8 +11,10 @@
       <LiveLaughLove />
       <h3 class="fragment in-css">in CSS</h3>
       <span class="relative">
-        <h4 class="fragment blessed">#blessed</h4>
-        <h4 class="fragment vomit">🤮</h4>
+        <h4 class="fragment blessed">
+          #blessed
+          <h4 class="fragment vomit">🤮</h4>
+        </h4>
       </span>
     </div>
     <div class="name">
@@ -92,6 +94,6 @@
     right: 0;
     top: 0;
     color: white;
-    transform: translateX(1rem) translateY(10vh) rotate(8deg);
+    transform: translateX(1rem) translateY(2rem);
   }
 </style>
