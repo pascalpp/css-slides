@@ -5,7 +5,6 @@
   import type { Api } from 'reveal.js';
 
   type FragmentEvent = Event & { fragment: HTMLElement };
-
   let reveal: Api | null = null;
   const context = getContext('reveal') as Record<string, null | Api>;
 
