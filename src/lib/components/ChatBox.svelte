@@ -129,7 +129,6 @@
     flex-direction: column;
     width: 100%;
     height: var(--chat-height);
-    border: 1px solid #ddd;
     background-color: #f8f8f8;
     flex-grow: 1;
 
