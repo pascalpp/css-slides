@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import autosize from 'autosize';
-  import { text } from '@sveltejs/kit';
 
   export let addMessage: (message: string) => void;
 
