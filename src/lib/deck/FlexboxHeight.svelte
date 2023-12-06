@@ -13,7 +13,7 @@
     const fragmentEvent = event as FragmentEvent;
     console.log('fragmentshown', event);
     if (fragmentEvent.fragment.classList.contains('scared-rabbit-box')) {
-      document.querySelector('.scared-rabbit')?.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector('.browser:has(.scared-rabbit-box) .content')?.scrollTo({ top: 1000, behavior: 'smooth' });
     }
   }
 
@@ -31,16 +31,10 @@
       reveal?.on('fragmenthidden', onFragmentHidden);
     }, 1000);
   });
-
-  let width = '100%';
-
-  function changeWidth() {
-    width = width === '100%' ? '80%' : '100%';
-  }
 </script>
 
 <section data-auto-animate>
-  <Browser title="Flexbox: the trouble with height: 100%" {width} on:click={changeWidth}>
+  <Browser title="Flexbox: the trouble with height: 100%">
     <div class="page">
       <div class="intro">
         <h2>The trouble with height: 100%</h2>
@@ -64,7 +58,7 @@
 </section>
 
 <section data-auto-animate>
-  <Browser title="Flexbox: the trouble with height: 100%" {width} on:click={changeWidth}>
+  <Browser title="Flexbox: the trouble with height: 100%">
     <div class="page">
       <div class="panels">
         <div class="pane box left height-100" data-id="left-pane">
@@ -94,6 +88,67 @@
   </Browser>
 </section>
 
+<section data-auto-animate>
+  <Browser title="Flexbox: the trouble with height: 100%">
+    <div class="page">
+      <div class="panels">
+        <div class="pane box left height-100" data-id="left-pane">
+          <ChatBox />
+        </div>
+        <div class="pane detail">
+          <h2>How do we fix this?</h2>
+          <p class="fragment">Set the height of the UI to 100% too?</p>
+          <div class="fragment chat-ui-100">
+            <Code lines="2">
+              {`
+                .chat-box {
+                  height: 100%;
+                }
+              `}
+            </Code>
+          </div>
+          <p class="fragment">That sorta fixes it…</p>
+        </div>
+      </div>
+    </div>
+  </Browser>
+</section>
+
+<section data-auto-animate>
+  <Browser title="Flexbox: the trouble with height: 100%">
+    <div class="page">
+      <div class="panels">
+        <div class="pane box left height-100" data-id="left-pane">
+          <div class="chat-header">
+            <h2>Chat</h2>
+          </div>
+          <div class="chat-tabs">
+            <div class="tab">All</div>
+            <div class="tab">Following</div>
+            <div class="tab">Unread</div>
+          </div>
+          <div class="chat-alert">
+            <div class="chat-alert-box">
+              <p>Your account is about to expire. <button>Renew now!</button></p>
+            </div>
+          </div>
+          <ChatBox />
+        </div>
+        <div class="pane detail">
+          <h2>But what if…</h2>
+          <p>…a new element is added?</p>
+          <p>
+            <span class="fragment chat-header-fragment">Like a header…</span>
+            <span class="fragment chat-tabs-fragment">or some tabs…</span>
+            <span class="fragment chat-alert-fragment">or an alert…</span>
+          </p>
+          <p class="fragment">Now the layout is broken again!</p>
+        </div>
+      </div>
+    </div>
+  </Browser>
+</section>
+
 <style lang="less">
   .page {
     --blue: hsl(208, 80%, 30%);
@@ -114,25 +169,29 @@
         display: none;
       }
     }
+
+    &:has(.chat-ui-100.visible),
+    &:has(.chat-header) {
+      --chat-height: 100%;
+    }
   }
 
   .scared-rabbit-box {
     position: absolute;
     left: 0;
     top: 0;
-    transform: translateX(-50%) translateY(110px);
+    transform: translateX(-50%) translateY(180px);
     p {
       font-size: 0.9em;
     }
-  }
-  .scared-rabbit {
-    margin-top: 1rem;
-    background-image: url('./scared-rabbit.gif');
-    width: 420px;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
-    // right: 1rem;
+    .scared-rabbit {
+      margin-top: 1rem;
+      background-image: url('./scared-rabbit.gif');
+      width: 420px;
+      height: 280px;
+      background-size: cover;
+      background-position: center;
+    }
   }
 
   .panels {
@@ -206,5 +265,61 @@
     left: 100%;
     width: max-content;
     display: none;
+  }
+
+  .chat-header {
+    background-color: #ddd;
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+    display: none;
+    h2 {
+      font-size: 18px;
+      font-family: var(--font-system);
+      color: black;
+    }
+  }
+  .page:has(.chat-header-fragment.visible) .chat-header {
+    display: block;
+  }
+
+  .chat-tabs {
+    display: none;
+    gap: 8px;
+    padding: 8px;
+    background-color: #eee;
+    .tab {
+      padding: 4px 8px;
+      border-radius: 4px;
+      background-color: #ddd;
+      font-size: 14px;
+      font-family: var(--font-system);
+      color: black;
+    }
+  }
+  .page:has(.chat-tabs-fragment.visible) .chat-tabs {
+    display: flex;
+  }
+
+  .chat-alert {
+    display: none;
+    border-top: 1px solid #ccc;
+    background-color: #eee;
+    font-family: var(--font-system);
+    font-size: 16px;
+    padding: 4px;
+    .chat-alert-box {
+      background-color: color-mix(in srgb, var(--color-red) 30%, white);
+      border: 1px solid color-mix(in srgb, var(--color-red) 50%, transparent);
+      color: black;
+      padding: 8px;
+      border-radius: 4px;
+      button {
+        margin-top: 4px;
+        font: inherit;
+      }
+    }
+  }
+  .page:has(.chat-alert-fragment.visible) .chat-alert {
+    display: block;
   }
 </style>
