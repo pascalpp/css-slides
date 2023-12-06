@@ -1,11 +1,4 @@
-<script lang="ts">
-  import ChatComposer from './ChatComposer.svelte';
-  import ChatMessage from './ChatMessage.svelte';
-  import ChatTimeline from './ChatTimeline.svelte';
-  import type { Message } from './ChatMessage.svelte';
-
-  export let style = 'height: 100%';
-
+<script lang="ts" context="module">
   const now = Date.now();
   let decriment = 0;
 
@@ -21,8 +14,57 @@
   let messages: Message[] = [
     {
       id: crypto.randomUUID(),
+      text: 'Roger???',
+      author: 'Eddie Valiant',
+      date: getDate(),
+      type: 'received',
+    },
+    {
+      id: crypto.randomUUID(),
+      text: 'Wake up, you dumb rabbit!',
+      author: 'Eddie Valiant',
+      date: getDate(),
+      type: 'received',
+    },
+    {
+      id: crypto.randomUUID(),
+      text: 'Roger? Do you read me?',
+      author: 'Eddie Valiant',
+      date: getDate(),
+      type: 'received',
+    },
+    {
+      id: crypto.randomUUID(),
+      text: 'Hey! Judge Doom is on his way to Toon Town! You and your friends better scram!',
+      author: 'Eddie Valiant',
+      date: getDate(),
+      type: 'received',
+    },
+    {
+      id: crypto.randomUUID(),
+      text: '8pm sharp!',
+      author: 'Roger Rabbit',
+      date: getDate(),
+      type: 'sent',
+    },
+    {
+      id: crypto.randomUUID(),
+      text: 'What time does she go on?',
+      author: 'Eddie Valiant',
+      date: getDate(),
+      type: 'received',
+    },
+    {
+      id: crypto.randomUUID(),
+      text: 'Jessica says she’s going to sing a special toon, I mean tune, just for you!',
+      author: 'Roger Rabbit',
+      date: getDate(),
+      type: 'sent',
+    },
+    {
+      id: crypto.randomUUID(),
       text: 'Great. I’ll be there!',
-      author: 'Bob Hoskins',
+      author: 'Eddie Valiant',
       date: getDate(),
       type: 'received',
     },
@@ -36,25 +78,22 @@
     {
       id: crypto.randomUUID(),
       text: 'Hey Roger, is Jessica singing at the club tonight?',
-      author: 'Bob Hoskins',
-      date: getDate(),
-      type: 'received',
-    },
-    {
-      id: crypto.randomUUID(),
-      text: 'Jeepers!',
-      author: 'Roger Rabbit',
-      date: getDate(),
-      type: 'sent',
-    },
-    {
-      id: crypto.randomUUID(),
-      text: 'Hey! Judge Doom is on his way to Toon Town! You and your friends better scram!',
-      author: 'Bob Hoskins',
+      author: 'Eddie Valiant',
       date: getDate(),
       type: 'received',
     },
   ];
+</script>
+
+<script lang="ts">
+  import ChatComposer from './ChatComposer.svelte';
+  import ChatMessage from './ChatMessage.svelte';
+  import ChatTimeline from './ChatTimeline.svelte';
+  import type { Message } from './ChatMessage.svelte';
+
+  export let style = '';
+  export let fragment = false;
+  export let index: string | null = null;
 
   function addMessage(text: string) {
     if (!text) return;
@@ -69,7 +108,7 @@
   }
 </script>
 
-<div class="chat" {style}>
+<div class="chat" {style} class:fragment data-fragment-index={index}>
   <ChatTimeline>
     {#each messages as message (message.id)}
       <ChatMessage {message} />
@@ -89,5 +128,15 @@
     width: 100%;
     border: 1px solid #ddd;
     background-color: #f8f8f8;
+
+    &.fragment {
+      transition: max-height 1s ease-in-out;
+      &:not(.visible) {
+        max-height: 0;
+      }
+      &:is(.visible) {
+        max-height: 2000px;
+      }
+    }
   }
 </style>
