@@ -9,48 +9,50 @@
 <section>
   <div class="page row">
     <div>
-      <h1>Flexbox Basics</h1>
-      <ul class="fragment flex-direction">
-        <li>
-          flex-direction: <span class="small">row | column</span>
-        </li>
-        <li class="fragment justify-content">
-          justify-content:<br />
-          <span class="indent nowrap small">
-            <button on:click={() => (justify = 'flex-start')} class:active={justify === 'flex-start'}
-              >flex-start</button>
-            |
-            <button on:click={() => (justify = 'flex-end')} class:active={justify === 'flex-end'}>flex-end</button>
-            |
-            <button on:click={() => (justify = 'center')} class:active={justify === 'center'}>center</button>
-            |
-            <button on:click={() => (justify = 'space-between')} class:active={justify === 'space-between'}
-              >space-between</button>
-            | …
-          </span>
-        </li>
-        <li class="fragment align-items">
-          align-items:<br />
-          <span class="indent small">
-            <button on:click={() => (align = 'stretch')} class:active={align === 'stretch'}>stretch</button>
-            |
-            <button on:click={() => (align = 'flex-start')} class:active={align === 'flex-start'}>flex-start</button>
-            |
-            <button on:click={() => (align = 'flex-end')} class:active={align === 'flex-end'}>flex-end</button>
-            |
-            <button on:click={() => (align = 'center')} class:active={align === 'center'}>center</button>
-            | …
-          </span>
-        </li>
-        <li class="fragment">
-          <div class="row gap-row">
-            <span>gap: <em class="small">any length</em></span>
-            <span class="slider">
-              <Slider id="gap" bind:value={gap} min={0} max={2} step={0.1} label="" />
+      <div class="box wrapper">
+        <h1>Flexbox Basics</h1>
+        <ul class="fragment flex-direction">
+          <li>
+            flex-direction: <span class="small">row | column</span>
+          </li>
+          <li class="fragment justify-content">
+            justify-content:<br />
+            <span class="indent nowrap small">
+              <button on:click={() => (justify = 'flex-start')} class:active={justify === 'flex-start'}
+                >flex-start</button>
+              |
+              <button on:click={() => (justify = 'flex-end')} class:active={justify === 'flex-end'}>flex-end</button>
+              |
+              <button on:click={() => (justify = 'center')} class:active={justify === 'center'}>center</button>
+              |
+              <button on:click={() => (justify = 'space-between')} class:active={justify === 'space-between'}
+                >space-between</button>
+              | …
             </span>
-          </div>
-        </li>
-      </ul>
+          </li>
+          <li class="fragment align-items">
+            align-items:<br />
+            <span class="indent small">
+              <button on:click={() => (align = 'stretch')} class:active={align === 'stretch'}>stretch</button>
+              |
+              <button on:click={() => (align = 'flex-start')} class:active={align === 'flex-start'}>flex-start</button>
+              |
+              <button on:click={() => (align = 'flex-end')} class:active={align === 'flex-end'}>flex-end</button>
+              |
+              <button on:click={() => (align = 'center')} class:active={align === 'center'}>center</button>
+              | …
+            </span>
+          </li>
+          <li class="fragment">
+            <div class="row gap-row">
+              <span>gap: <em class="small">any length</em></span>
+              <span class="slider">
+                <Slider id="gap" bind:value={gap} min={0} max={2} step={0.1} label="" />
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
 
       <div class="flex-example box row-example" style="align-items: {align}; justify-content: {justify}; gap: {gap}em">
         <div class="box"></div>
@@ -87,7 +89,7 @@
   }
 
   .page {
-    gap: 0rem;
+    gap: 2rem;
     align-items: flex-end;
   }
 
@@ -98,6 +100,10 @@
   //   }
   // }
 
+  ul {
+    margin-left: 0;
+    font-size: 0.9em;
+  }
   li + li {
     margin-top: 1rem;
   }
