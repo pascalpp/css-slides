@@ -32,7 +32,7 @@
                   <p>in any ‘narrow’ context</p>
                 </div>
                 <div class="fragment custom exclusive">
-                  <h2>Usage</h2>
+                  <h3>Usage</h3>
                   <p>1. Wrap your node in a container</p>
                   <Code lines="1,3"
                     >{`<div class="container">
@@ -41,7 +41,7 @@
                   <p class="small">Or use the :host element of your Angular component.*</p>
                 </div>
                 <div class="fragment custom exclusive">
-                  <h2>Usage</h2>
+                  <h3>Usage</h3>
                   <p>2. Apply container styles</p>
                   <Code id="container-css" lines="1-4"
                     >{`.container {
@@ -63,7 +63,7 @@
                   </p>
                 </div>
                 <div class="fragment custom exclusive">
-                  <h2>Usage</h2>
+                  <h3>Usage</h3>
                   <p>3. Apply container query</p>
                   <Code id="container-css" lines="6-10"
                     >{`.container {
@@ -253,6 +253,13 @@
 
     &:has(.fragment.current-fragment) {
       opacity: 1;
+    }
+    &:has(.fragment.visible:nth-child(3)) {
+      justify-content: flex-start;
+    }
+
+    p.small {
+      margin: 0;
     }
   }
 </style>
