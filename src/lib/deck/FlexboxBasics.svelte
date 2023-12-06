@@ -8,7 +8,7 @@
 
 <section>
   <div class="page row">
-    <div>
+    <div class="left-column">
       <div class="box wrapper">
         <h1>Flexbox Basics</h1>
         <ul class="fragment flex-direction">
@@ -90,6 +90,13 @@
 
   .page {
     gap: 2rem;
+    align-items: flex-end;
+  }
+
+  .left-column {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
     align-items: flex-end;
   }
 
@@ -215,8 +222,6 @@
     position: relative;
 
     .box {
-      margin-inline: unset;
-      width: unset;
       background-color: color-mix(in srgb, var(--color-lime) 15%, transparent);
       opacity: 0;
     }
@@ -233,11 +238,8 @@
         color: var(--color-lime);
         font-size: 0.8em;
       }
-      float: right;
       flex-direction: row;
       flex-wrap: nowrap;
-      margin-top: 2rem;
-      margin-right: 3rem;
       width: 500px;
       .box:nth-child(2) {
         height: 7rem;
