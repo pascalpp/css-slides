@@ -110,7 +110,7 @@
   }
 </script>
 
-<div class="chat" {style} class:fragment data-fragment-index={index}>
+<div class="chat" {style} class:fragment data-fragment-index={index} data-id="chat-box">
   <ChatTimeline>
     {#each messages as message (message.id)}
       <ChatMessage {message} />
@@ -131,6 +131,7 @@
     height: var(--chat-height);
     border: 1px solid #ddd;
     background-color: #f8f8f8;
+    flex-grow: 1;
 
     &.fragment {
       transition: max-height 1s ease-in-out;
