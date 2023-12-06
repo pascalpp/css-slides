@@ -46,14 +46,7 @@
         <h2>The trouble with height: 100%</h2>
         <p>One of the common pitfalls of CSS layout</p>
       </div>
-    </div>
-  </Browser>
-</section>
-
-<section data-auto-animate>
-  <Browser title="Flexbox: the trouble with height: 100%" {width} on:click={changeWidth}>
-    <div class="page">
-      <div class="panels">
+      <div class="panels fragment">
         <div class="pane box left" data-id="left-pane"></div>
         <div class="pane detail">
           <h2>Here’s a box</h2>
@@ -116,7 +109,7 @@
       white-space: nowrap;
       transform: translateX(-50%) translateY(-50%);
     }
-    &:has(.panels .fragment.visible) {
+    &:has(.panels.fragment.visible) {
       .intro {
         display: none;
       }
