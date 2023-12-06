@@ -1,10 +1,12 @@
 <script lang="ts">
-  export let id: string | null = null;
+  export let id = 'code-block';
   export let lines: string | boolean | null = null;
   export let noescape = false;
+  export let fragment = false;
+  export let index: string | null = null;
 </script>
 
-<pre data-id={id || null}>
+<pre data-id={id || null} class:fragment data-fragment-index={index}>
 	<code data-trim data-line-numbers={lines || null} data-noescape={noescape || null}><slot /></code>
 </pre>
 
@@ -14,9 +16,10 @@
     line-height: 1.5;
     width: min-content;
     code {
-      padding-block: 0.25rem;
-      padding-inline: 0.75rem;
-      border-radius: 0.25rem;
+      padding-block: 0.5rem;
+      padding-inline: 1rem;
+      border-radius: 8px;
+      border: 1px solid hsla(0 100% 100% / 0.1);
     }
   }
 </style>
