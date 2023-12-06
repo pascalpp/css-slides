@@ -15,12 +15,22 @@
     if (fragmentEvent.fragment.classList.contains('scared-rabbit-box')) {
       document.querySelector('.browser:has(.scared-rabbit-box) .content')?.scrollTo({ top: 1000, behavior: 'smooth' });
     }
+    if (fragmentEvent.fragment.classList.contains('broken-again-pointer')) {
+      setTimeout(() => {
+        document
+          .querySelector('.browser:has(.broken-again-pointer) .content')
+          ?.scrollTo({ top: 500, behavior: 'smooth' });
+      }, 1000);
+    }
   }
 
   function onFragmentHidden(event: Event) {
     const fragmentEvent = event as FragmentEvent;
     if (fragmentEvent.fragment.classList.contains('scared-rabbit-box')) {
       document.querySelector('.browser:has(.scared-rabbit-box) .content')?.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (fragmentEvent.fragment.classList.contains('broken-again-pointer')) {
+      document.querySelector('.browser:has(.broken-again-pointer) .content')?.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -123,15 +133,17 @@
           <ChatBox />
         </div>
         <div class="pane detail">
-          <div class="broken-again-pointer">Text box has been<br />pushed off the page!</div>
+          <div class="fragment broken-again-pointer" data-fragment-index="50">
+            Text box has been<br />pushed off the page!
+          </div>
           <h2>But what if…</h2>
           <p>…a new element is added?</p>
           <p>
-            <span class="fragment chat-header-fragment">Like a header…</span>
-            <span class="fragment chat-tabs-fragment">or some tabs…</span>
-            <span class="fragment chat-alert-fragment">or an alert…</span>
+            <span class="fragment chat-header-fragment" data-fragment-index="10">Like a header…</span>
+            <span class="fragment chat-tabs-fragment" data-fragment-index="20">or some tabs…</span>
+            <span class="fragment chat-alert-fragment" data-fragment-index="30">or an alert…</span>
           </p>
-          <p class="fragment broken-again-fragment">Now the layout is broken again!</p>
+          <p class="fragment broken-again-fragment" data-fragment-index="40">Now the layout is broken again!</p>
         </div>
       </div>
     </div>
@@ -349,6 +361,9 @@
         <div class="pane detail">
           <h3>That did it!</h3>
           <div class="happy-rabbit box"></div>
+          <p class="fragment small">
+            Flexbox enables responsive layouts without<br />absolute positioning or “magic” numbers.
+          </p>
         </div>
       </div>
     </div>
@@ -386,7 +401,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    transform: translateY(180px);
+    transform: translateY(155px);
     width: 400px;
     p {
       font-size: 0.9em;
@@ -521,7 +536,7 @@
   }
 
   .broken-again-pointer {
-    position: absolute;
+    position: fixed;
     left: 37%;
     bottom: 30px;
     color: white;
@@ -544,11 +559,20 @@
       border-radius: inherit;
       z-index: -1;
     }
-    display: none;
+    animation: wiggle 1s infinite;
+    animation-delay: 1s;
   }
-  .page:has(.broken-again-fragment.visible) .broken-again-pointer {
-    display: block;
-    position: fixed;
+
+  @keyframes wiggle {
+    0% {
+      transform: rotate(-15deg);
+    }
+    50% {
+      transform: rotate(-20deg);
+    }
+    100% {
+      transform: rotate(-15deg);
+    }
   }
 
   .page:has(.flex-shrink-fragment.visible) {
@@ -576,7 +600,7 @@
   }
 
   .happy-rabbit {
-    margin-top: 1rem;
+    margin-block: 1rem;
     background-image: url('./happy-rabbit.gif');
     width: 400px;
     height: 250px;
