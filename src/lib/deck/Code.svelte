@@ -7,7 +7,7 @@
 </script>
 
 <pre data-id={id || null} class:fragment data-fragment-index={index}>
-	<code data-trim data-line-numbers={lines || null} data-noescape={noescape || null}><slot /></code>
+  <code data-trim data-line-numbers={lines || null} data-noescape={noescape || null}><slot /></code>
 </pre>
 
 <style lang="less">
