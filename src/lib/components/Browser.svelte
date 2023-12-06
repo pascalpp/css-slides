@@ -1,10 +1,11 @@
 <script lang="ts">
+  export let id = 'browser-window';
   export let title = 'Browser';
   export let width = '100%';
 </script>
 
-<div class="browser" style="--browser-width: {width}">
-  <nav>
+<div class="browser" style="--browser-width: {width}" data-id={id}>
+  <nav data-id="{id}-browser-nav">
     <div class="buttons">
       <button class="button close" on:click data-button="close" />
       <button class="button minimize" on:click data-button="minimize" />
@@ -89,6 +90,7 @@
 
     .content {
       background-color: #333;
+      overflow-y: auto;
     }
   }
 </style>
