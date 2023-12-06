@@ -34,49 +34,92 @@
                 <div class="fragment custom exclusive">
                   <h3>Usage</h3>
                   <p>1. Wrap your node in a container</p>
-                  <Code lines="1,3"
-                    >{`<div class="container">
-  <div class="cards">…</div>
-</div>`}</Code>
+                  <Code lines="1,3">
+                    {`
+                      <div class="container">
+                        <div class="cards">…</div>
+                      </div>
+                    `}
+                  </Code>
                   <p class="small">Or use the :host element of your Angular component.*</p>
                 </div>
                 <div class="fragment custom exclusive">
                   <h3>Usage</h3>
                   <p>2. Apply container styles</p>
-                  <Code id="container-css" lines="1-4"
-                    >{`.container {
-  container-name: kittens;
-  container-type: inline-size;
-}
+                  <Code id="container-css" lines="1-4">
+                    {`
+                      .container {
+                        container-name: kittens;
+                        container-type: inline-size;
+                      }
 
-@container kittens (inline-size <= 640px) {
-  .cards {
-    flex-direction: column;
-  }
-}
-`}</Code>
-                  <p class="fragment small custom exclusive">
+                      @container kittens (inline-size <= 640px) {
+                        .cards {
+                          flex-direction: column;
+                        }
+                      }
+                    `}
+                  </Code>
+                </div>
+                <div class="fragment custom exclusive">
+                  <h3>Usage</h3>
+                  <p>2. Apply container styles</p>
+                  <Code id="container-css" lines="2">
+                    {`
+                      .container {
+                        container-name: kittens;
+                        container-type: inline-size;
+                      }
+
+                      @container kittens (inline-size <= 640px) {
+                        .cards {
+                          flex-direction: column;
+                        }
+                      }
+                    `}
+                  </Code>
+                  <p class="small">
                     Use a unique, descriptive <code>container-name</code>.
                   </p>
-                  <p class="fragment small custom exclusive">
+                </div>
+                <div class="fragment custom exclusive">
+                  <h3>Usage</h3>
+                  <p>2. Apply container styles</p>
+                  <Code id="container-css" lines="3">
+                    {`
+                      .container {
+                        container-name: kittens;
+                        container-type: inline-size;
+                      }
+
+                      @container kittens (inline-size <= 640px) {
+                        .cards {
+                          flex-direction: column;
+                        }
+                      }
+                    `}
+                  </Code>
+                  <p class="small custom exclusive">
                     Use <code>inline-size</code> to query container width.
                   </p>
                 </div>
                 <div class="fragment custom exclusive">
                   <h3>Usage</h3>
                   <p>3. Apply container query</p>
-                  <Code id="container-css" lines="6-10"
-                    >{`.container {
-  container-name: kittens;
-  container-type: inline-size;
-}
+                  <Code id="container-css" lines="6-10">
+                    {`
+                      .container {
+                        container-name: kittens;
+                        container-type: inline-size;
+                      }
 
-@container kittens (inline-size <= 640px) {
-  .cards {
-    flex-direction: column;
-  }
-}
-`}</Code>
+                      @container kittens (inline-size <= 640px) {
+                        .cards {
+                          flex-direction: column;
+                        }
+                      }
+                    `}
+                  </Code>
                   <p class="fragment small">Cards switch to a column when the container is narrow.</p>
                 </div>
               </div>
