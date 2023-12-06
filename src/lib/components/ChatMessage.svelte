@@ -32,7 +32,7 @@
     width: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 
     .author,
     .time {
@@ -42,8 +42,8 @@
 
     .text {
       background-color: #ccc;
-      padding: 8px 20px;
-      border-radius: 24px;
+      padding: 8px 16px;
+      border-radius: 20px;
       width: fit-content;
       white-space: pre-line;
       color: black;

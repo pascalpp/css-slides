@@ -18,15 +18,15 @@
     .content {
       &:after {
         display: block;
-        height: 50px;
-        width: 10px;
+        height: 00px;
+        width: 100%;
         flex-shrink: 0;
-        content: '0';
+        content: '';
       }
       display: flex;
       flex: 1;
       flex-direction: column-reverse;
-      gap: 0.25em;
+      gap: 0.5em;
       padding: 1em;
     }
   }
