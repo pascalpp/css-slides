@@ -4,9 +4,10 @@
   export let noescape = false;
   export let fragment = false;
   export let index: string | null = null;
+  export let style = '';
 </script>
 
-<pre data-id={id || null} class:fragment data-fragment-index={index}>
+<pre data-id={id || null} class:fragment data-fragment-index={index} {style}>
   <code data-trim data-line-numbers={lines || null} data-noescape={noescape || null}><slot /></code>
 </pre>
 
