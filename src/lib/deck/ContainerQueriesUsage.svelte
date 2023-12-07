@@ -9,9 +9,9 @@
       <div class="page">
         <h3>
           &nbsp;
-          <span class="fragment wide-browser">Wide browser</span>
+          <span class="fragment wide-browser">Wide context</span>
           <span class="fragment narrow-browser">Narrow</span>
-          <span class="fragment sidebar-browser">Sidebar in a wide browser</span>
+          <span class="fragment sidebar-browser">Sidebar in a wide context</span>
           &nbsp;
         </h3>
         <div class="panels">
@@ -299,6 +299,13 @@
     }
     &:has(.fragment.visible:nth-child(3)) {
       justify-content: flex-start;
+    }
+
+    h3 {
+      margin-bottom: 0;
+    }
+    p {
+      margin: 0;
     }
 
     p.small {
