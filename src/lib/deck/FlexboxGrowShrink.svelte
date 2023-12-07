@@ -224,7 +224,7 @@
     }
 
     .wide-content {
-      height: 3.9em;
+      height: 4em;
       &:has(.fragment.visible) {
         height: auto;
       }
