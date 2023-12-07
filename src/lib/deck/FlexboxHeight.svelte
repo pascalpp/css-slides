@@ -15,12 +15,15 @@
     if (fragmentEvent.fragment.classList.contains('scared-rabbit-box')) {
       document.querySelector('.browser:has(.scared-rabbit-box) .content')?.scrollTo({ top: 1000, behavior: 'smooth' });
     }
+    if (fragmentEvent.fragment.classList.contains('extra-height-fragment')) {
+      setExtraHeight();
+    }
     if (fragmentEvent.fragment.classList.contains('broken-again-pointer')) {
       setTimeout(() => {
         document
           .querySelector('.browser:has(.broken-again-pointer) .content')
           ?.scrollTo({ top: 500, behavior: 'smooth' });
-      }, 1000);
+      }, 10);
     }
   }
 
@@ -34,11 +37,22 @@
     }
   }
 
+  let extraHeight = 0;
+
+  function setExtraHeight() {
+    const elements = Array.from(document.querySelectorAll('.measure-me')) as HTMLElement[];
+    extraHeight = Array.from(elements).reduce((acc, el) => {
+      return acc + el.offsetHeight;
+    }, 0);
+  }
+
   onMount(() => {
     setTimeout(() => {
       reveal = context?.reveal;
       reveal?.on('fragmentshown', onFragmentShown);
       reveal?.on('fragmenthidden', onFragmentHidden);
+
+      setExtraHeight();
     }, 1000);
   });
 </script>
@@ -68,7 +82,7 @@
             <p class="fragment show-chat-fragment">and show some UI in the box.</p>
             <p class="fragment theres-a-problem">But there’s a problem!</p>
             <div class="relative">
-              <div class="fragment scared-rabbit-box">
+              <div class="fragment scared-rabbit-box column">
                 <p>
                   Our layout is broken, and Roger Rabbit has been missing some important messages from Eddie Valiant!
                 </p>
@@ -117,19 +131,27 @@
       <span class="show-chat-fragment visible"></span>
       <div class="panels">
         <div class="pane box left" data-id="left-pane">
-          <div class="chat-header" data-id="chat-header">
+          <div class="chat-header measure-me" data-id="chat-header">
             <h2>Chat</h2>
           </div>
-          <div class="chat-tabs" data-id="chat-tabs">
+          <div class="chat-tabs measure-me" data-id="chat-tabs">
             <div class="tab">All</div>
             <div class="tab">Following</div>
             <div class="tab">Unread</div>
           </div>
-          <div class="chat-alert" data-id="chat-alert">
+          <div class="chat-alert measure-me" data-id="chat-alert">
             <div class="chat-alert-box">
               <p>Your account is about to expire. <button>Renew now!</button></p>
             </div>
           </div>
+          {#if extraHeight}
+            <div class="extra-height-bracket" style="height: {extraHeight}px">
+              <span>{Math.round(extraHeight)}px</span>
+            </div>
+            <div class="extra-height-bracket" style="top: {extraHeight}px; height: 100%">
+              <span>100%</span>
+            </div>
+          {/if}
           <ChatBox />
         </div>
         <div class="pane detail">
@@ -143,7 +165,10 @@
             <span class="fragment chat-tabs-fragment" data-fragment-index="20">or some tabs…</span>
             <span class="fragment chat-alert-fragment" data-fragment-index="30">or an alert…</span>
           </p>
-          <p class="fragment broken-again-fragment" data-fragment-index="40">Now the layout is broken again!</p>
+          <p class="fragment extra-height-fragment" data-fragment-index="40">
+            <code>100% + {Math.round(extraHeight)}px !== 100%;</code>
+          </p>
+          <p class="fragment broken-again-fragment" data-fragment-index="41">Now the layout is broken again…</p>
         </div>
       </div>
     </div>
@@ -361,8 +386,11 @@
         <div class="pane detail">
           <h3>That did it!</h3>
           <div class="happy-rabbit box"></div>
-          <p class="fragment small">
-            Flexbox enables responsive layouts without<br />absolute positioning or “magic” numbers.
+          <p class="fragment small" style="max-width: 40ch">
+            Flexbox enables layouts to be responsive to the “instrinsic size” of content.
+          </p>
+          <p class="fragment small" style="max-width: 40ch">
+            Instead of more brittle alternatives like absolute positioning or “magic” numbers.
           </p>
         </div>
       </div>
@@ -401,15 +429,16 @@
     position: absolute;
     left: 0;
     top: 0;
-    transform: translateY(155px);
     width: 400px;
+    transform: translateY(165px);
     p {
+      width: 370px;
       font-size: 0.9em;
     }
     .scared-rabbit {
       margin-top: 1rem;
       background-image: url('./scared-rabbit.gif');
-      width: 420px;
+      width: 100%;
       height: 280px;
       background-size: cover;
       background-position: center;
@@ -535,16 +564,52 @@
     background-position: center;
   }
 
+  .extra-height-bracket {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    font-family: var(--font-mono);
+    font-size: 20px;
+    border: 3px solid var(--color-red);
+    border-left: none;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    transform: translate(4px, -2px);
+    width: 1.5rem;
+    span {
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translate(0, -50%);
+      padding-left: 1.25rem;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 1rem;
+        height: 3px;
+        background-color: var(--color-red);
+        transform: translate(0, -50%);
+      }
+    }
+  }
+  .page:has(.extra-height-fragment.visible) .extra-height-bracket {
+    display: block;
+  }
+
   .broken-again-pointer {
     position: fixed;
-    left: 37%;
-    bottom: 30px;
+    left: 39%;
+    bottom: 50px;
     color: white;
     font-size: 16px;
     transform: rotate(-15deg);
     padding: 0.25rem 0.5rem;
     background-color: var(--color-red);
     border-radius: 4px;
+    z-index: 1;
     &::before {
       content: '';
       position: absolute;
