@@ -38,12 +38,12 @@
   }
 
   h3 {
+    margin: 0;
     &.or {
       margin-right: 1rem;
       color: white;
       font-family: var(--font-serif);
       font-style: italic;
-      transform: translateY(-1px);
       font-size: 0.8em;
     }
     &.in-css {
@@ -57,7 +57,7 @@
     right: 0;
     top: 0;
     color: white;
-    transform: translateX(1rem) translateY(5vh) rotate(8deg);
+    transform: translateX(1rem) translateY(2rem) rotate(10deg);
     padding: 0.25rem 0.5rem;
     background-color: var(--color-red);
     border-radius: 4px;
@@ -94,6 +94,6 @@
     right: 0;
     top: 0;
     color: white;
-    transform: translateX(1rem) translateY(2rem);
+    transform: translateX(1rem) translateY(2rem) rotate(-5deg);
   }
 </style>
