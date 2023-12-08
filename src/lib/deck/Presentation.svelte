@@ -22,12 +22,12 @@
   <FlexboxHeight />
 </section>
 
+<IsWhereNotHas />
+
 <section>
   <ContainerQueriesBasics />
   <ContainerQueriesUsage />
 </section>
-
-<IsWhereNotHas />
 
 <Slide>
   <Slide animate>
