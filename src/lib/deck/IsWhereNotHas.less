@@ -1,0 +1,90 @@
+.is-has-where-not-has {
+  :has(.is-single-selector-fragment.visible) .layout {
+    :is(header, aside, article, footer) a {
+      color: var(--color-yellow);
+    }
+  }
+
+  :has(.is-single-selector-fragment.current-fragment) .layout {
+    :is(header, aside, article, footer) a {
+      display: inline-block;
+      animation: bounce 1s ease-in-out 1s infinite;
+    }
+  }
+
+  :has(.where-override-fragment.visible) .layout {
+    aside a {
+      color: white;
+    }
+  }
+
+  :has(.where-override-fragment.current-fragment) .layout {
+    aside {
+      animation: bounce 1s ease-in-out 1s infinite;
+    }
+  }
+
+  :has(.not-fragment.visible) .layout {
+    aside a {
+      color: var(--color-yellow);
+    }
+    aside a:not(.current) {
+      color: white;
+    }
+  }
+
+  :has(.not-fragment.current-fragment) .layout {
+    aside a:not(.current) {
+      display: inline-block;
+      animation: bounce 1s ease-in-out 1s infinite;
+    }
+  }
+
+  :has(.lime-fragment.visible) .layout {
+    :is(header, aside, article, footer) a {
+      color: var(--color-lime);
+    }
+  }
+
+  :has(.lime-fragment.current-fragment) .layout {
+    aside a.current {
+      display: inline-block;
+      animation: bounce 1s ease-in-out 1s infinite;
+    }
+  }
+
+  :has(.has-fragment.visible) .layout {
+    aside li:has(a.current) {
+      background-color: #222;
+    }
+  }
+
+  :has(.has-fragment.current-fragment) .layout {
+    aside {
+      animation: bounce 1s ease-in-out 1s infinite;
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes bounce2 {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

@@ -10,8 +10,7 @@
   import FlexboxHeight from './FlexboxHeight.svelte';
   import FlexboxBasics from './FlexboxBasics.svelte';
   import FlexboxGrowShrink from './FlexboxGrowShrink.svelte';
-  import IsWhereHas from './IsWhereHas.svelte';
-  import IsSelector from './IsSelector.svelte';
+  import IsWhereNotHas from './IsWhereNotHas.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
@@ -28,10 +27,7 @@
   <ContainerQueriesUsage />
 </section>
 
-<section>
-  <IsWhereHas />
-  <IsSelector />
-</section>
+<IsWhereNotHas />
 
 <Slide>
   <Slide animate>
