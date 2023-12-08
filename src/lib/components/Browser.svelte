@@ -27,6 +27,7 @@
 
 <style lang="less">
   .browser {
+    flex-shrink: 0;
     background-color: hsl(0, 0%, 80%);
     width: var(--browser-width, 100%);
     transition: width 0.5s ease-in-out;
