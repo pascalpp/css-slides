@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let id = 'code-block';
+  export let id: string | null = null;
   export let lines: string | boolean | null = null;
   export let noescape = false;
   export let fragment = false;
