@@ -4,7 +4,7 @@
 
 <Slide>
   <div class="box wrapper">
-    <h1><span data-id="is-header">:is</span>, :not, :where, :has</h1>
+    <h1>:is, :not, :where, :has</h1>
     <p>Some cool new CSS helpers to help you CSS your CSS</p>
   </div>
 </Slide>
