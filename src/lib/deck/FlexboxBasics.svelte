@@ -62,7 +62,7 @@
   <div class="page row">
     <div class="left-column">
       <div class="box wrapper">
-        <h1>Flexbox Basics</h1>
+        <h1>Fun with Flexbox</h1>
         <ul class="fragment flex-direction">
           <li>
             flex-direction: <span class="small">row | column</span>
