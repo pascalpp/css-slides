@@ -9,10 +9,14 @@
   import IsWhereNotHas from './IsWhereNotHas.svelte';
   import FunWIthColor from './FunWIthColor.svelte';
   import EndSlides from './EndSlides.svelte';
+  import WhatIsCss from './WhatIsCss2.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
 <HowToLiveLaughLove />
+
+<WhatIsCss />
+
 <FunWIthColor />
 
 <section>
