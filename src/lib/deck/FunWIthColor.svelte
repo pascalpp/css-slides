@@ -5,8 +5,6 @@
   import SwatchGrid from './SwatchGrid.svelte';
   import UserIcon from './user.svg?component';
   import Code from './Code.svelte';
-
-  let showSwatchGrid = true;
 </script>
 
 <Slide animate>
@@ -16,7 +14,7 @@
         <h1>Fun With Color</h1>
         <p class="fragment">Some handy tools<br />you might not know about:</p>
         <ul>
-          <li class="fragment"><code>currentColor</code></li>
+          <li class="fragment"><code>currentcolor</code></li>
           <li class="fragment"><code>color-mix()</code></li>
           <li class="fragment"><code>color-contrast()</code>*</li>
         </ul>
@@ -28,8 +26,10 @@
   <Slide transition="zoom">
     <div class="page row">
       <div class="left-column">
-        <h2><code>currentColor</code></h2>
-        <p class="small">The first “CSS variable”, equal to the text color inherited from the parent.</p>
+        <h2><code>currentcolor</code></h2>
+        <p class="small fragment" data-fragment-index="1">
+          The first “CSS variable”, equal to the text color inherited from the parent.
+        </p>
         <p class="small fragment" data-fragment-index="19">
           Allows you to reuse the inherited color for other properties, like:
         </p>
@@ -41,21 +41,9 @@
         </ul>
       </div>
       <div class="right-column">
-        <Browser width="500px" title="currentColor example">
+        <Browser width="500px" title="currentcolor example">
           <div class="layout">
             <div class="current-color-layout">
-              <div class="relative top">
-                <div class="fragment page-color" data-fragment-index="10">
-                  <Code>
-                    {`
-                      .page {
-                        color: lime;
-                      }
-                    `}
-                  </Code>
-                </div>
-              </div>
-
               <div class="user-card">
                 <div class="title-bar"></div>
                 <div class="row name-row">
@@ -68,11 +56,20 @@
               </div>
 
               <div class="relative bottom">
+                <div class="fragment page-color" data-fragment-index="10">
+                  <Code>
+                    {`
+                      .page {
+                        color: lime;
+                      }
+                    `}
+                  </Code>
+                </div>
                 <div class="fragment custom exclusive" data-fragment-index="20">
                   <Code lines="2">
                     {`
                       .user-card {
-                        border-color: currentColor;
+                        border-color: currentcolor;
                       }
                     `}
                   </Code>
@@ -82,7 +79,7 @@
                     {`
                       .user-card {
                         .title-bar {
-                          background-color: currentColor;
+                          background-color: currentcolor;
                         }
                       }
                     `}
@@ -91,7 +88,7 @@
                 <div class="fragment custom exclusive" data-fragment-index="40">
                   <Code lines="1">
                     {`
-                      <svg stroke="currentColor">
+                      <svg stroke="currentcolor">
                         <path d="..."></path>
                       </svg>
                     `}
@@ -101,8 +98,8 @@
                   <Code lines="3">
                     {`
                       .user-card {
-                        border-color: currentColor;
-                        box-shadow: 0 4px 4px currentColor;
+                        border-color: currentcolor;
+                        box-shadow: 0 2px 20px currentcolor;
                       }
                     `}
                   </Code>
@@ -125,6 +122,33 @@
                     `}
                   </Code>
                 </div>
+                <div class="fragment custom exclusive page-color-blue" data-fragment-index="80">
+                  <Code>
+                    {`
+                      .page {
+                        color: lightblue;
+                      }
+                    `}
+                  </Code>
+                </div>
+                <div class="fragment custom exclusive page-color-orange" data-fragment-index="90">
+                  <Code>
+                    {`
+                      .page {
+                        color: orange;
+                      }
+                    `}
+                  </Code>
+                </div>
+                <div class="fragment custom exclusive page-color-lime" data-fragment-index="100">
+                  <Code>
+                    {`
+                      .page {
+                        color: lime;
+                      }
+                    `}
+                  </Code>
+                </div>
               </div>
             </div>
           </div>
@@ -139,27 +163,8 @@
     gap: 4rem;
   }
 
-  button {
-    background: transparent;
-    color: inherit;
-    border: none;
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
-    padding: 0;
-    &.active {
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
-  }
-
   p.small {
     font-size: 0.8em;
-  }
-
-  .left-column {
-  }
-  .right-column {
   }
 
   ul {
@@ -188,11 +193,6 @@
       transform: translateX(-50%);
     }
 
-    &.top {
-      .fragment {
-        bottom: 0;
-      }
-    }
     &.bottom {
       .fragment {
         top: 0;

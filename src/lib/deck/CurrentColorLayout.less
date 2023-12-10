@@ -13,7 +13,7 @@
   .user-card {
     border: 1px solid #333;
     border-radius: 0.5rem;
-    // box-shadow: 0 4px 4px currentColor;
+    // box-shadow: 0 4px 4px currentcolor;
 
     .title-bar {
       height: 1rem;
@@ -25,10 +25,6 @@
       padding: 0.5rem 1rem;
       gap: 0.5rem;
       font-family: var(--font-sans);
-    }
-
-    svg {
-      display: none;
     }
   }
 
@@ -46,42 +42,55 @@
     color: var(--color-lime);
   }
 }
+.page:has(.custom.exclusive.visible) {
+  .fragment.page-color {
+    opacity: 0;
+  }
+}
+
 .page:has(.page-color-gold.visible) {
   .current-color-layout {
     color: gold;
-
-    .fragment.page-color {
-      opacity: 0;
-    }
   }
 }
 .page:has(.page-color-violet.visible) {
   .current-color-layout {
     color: violet;
-
-    .fragment.page-color {
-      opacity: 0;
-    }
+  }
+}
+.page:has(.page-color-blue.visible) {
+  .current-color-layout {
+    color: lightblue;
+  }
+}
+.page:has(.page-color-orange.visible) {
+  .current-color-layout {
+    color: orange;
+  }
+}
+.page:has(.page-color-lime.visible) {
+  .current-color-layout {
+    color: var(--color-lime);
   }
 }
 .page:has(.border-color.visible) {
   .current-color-layout .user-card {
-    border-color: currentColor;
+    border-color: currentcolor;
   }
 }
 .page:has(.background-color.visible) {
   .current-color-layout .title-bar {
-    background-color: currentColor;
+    background-color: currentcolor;
   }
 }
 .page:has(.svg-fill-stroke.visible) {
   .current-color-layout svg {
-    stroke: currentColor;
+    stroke: currentcolor;
     display: block;
   }
 }
 .page:has(.box-shadow.visible) {
   .current-color-layout .user-card {
-    box-shadow: 0 4px 4px currentColor;
+    box-shadow: 0 2px 20px currentcolor;
   }
 }
