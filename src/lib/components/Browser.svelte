@@ -44,6 +44,7 @@
       color: #333;
       font-size: 16px;
       padding: 4px 12px;
+      border-bottom: 1px solid rgba(0 0 0 / 0.2);
     }
 
     .buttons {
