@@ -35,6 +35,9 @@
     &.spread {
       justify-content: space-between;
     }
+    &.top {
+      align-items: flex-start;
+    }
   }
   .column {
     display: flex;
@@ -70,7 +73,7 @@
     font-size: 0.6em;
   }
 
-  p code {
+  :not(pre) > code {
     font-size: 0.8em;
     background-color: hsla(0, 100%, 100%, 0.1);
     padding: 0.2em 0.4em;
