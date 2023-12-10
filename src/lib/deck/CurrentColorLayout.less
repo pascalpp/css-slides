@@ -1,0 +1,64 @@
+.current-color-layout {
+  padding: 1rem;
+
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 5rem;
+  color: white;
+
+  .user-card {
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    // box-shadow: 0 4px 4px currentColor;
+
+    .title-bar {
+      height: 1rem;
+      background-color: #333;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .name-row {
+      padding: 0.5rem 1rem;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+    }
+  }
+
+  :has(> .hover-content) {
+    position: relative;
+  }
+  .hover-content {
+    font-size: 24px;
+    position: absolute;
+  }
+}
+
+.page:has(.page-color.visible) {
+  .current-color-layout {
+    color: var(--color-lime);
+  }
+}
+.page:has(.border-color.visible) {
+  .current-color-layout .user-card {
+    border-color: currentColor;
+  }
+}
+.page:has(.background-color.visible) {
+  .current-color-layout .title-bar {
+    background-color: currentColor;
+  }
+}
+.page:has(.svg-fill-stroke.visible) {
+  .current-color-layout svg {
+    stroke: currentColor;
+  }
+}
+.page:has(.box-shadow.visible) {
+  .current-color-layout .user-card {
+    box-shadow: 0 4px 4px currentColor;
+  }
+}
