@@ -1,8 +1,4 @@
 <script lang="ts">
-  import Code from './Code.svelte';
-  import Slide from './Slide.svelte';
-  import snippet from './Code.svelte?raw';
-
   import TheGoodTheBadTheBeautiful from './TheGoodTheBadTheBeautiful.svelte';
   import HowToLiveLaughLove from './HowToLiveLaughLove.svelte';
   import ContainerQueriesBasics from './ContainerQueriesBasics.svelte';
@@ -12,6 +8,7 @@
   import FlexboxGrowShrink from './FlexboxGrowShrink.svelte';
   import IsWhereNotHas from './IsWhereNotHas.svelte';
   import FunWIthColor from './FunWIthColor.svelte';
+  import EndSlides from './EndSlides.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
@@ -31,32 +28,4 @@
   <ContainerQueriesUsage />
 </section>
 
-<Slide>
-  <Slide animate>
-    <h1>Animate</h1>
-    <div class="column" style="gap: 1rem">
-      <div class="box" data-id="box-1"></div>
-      <div class="box" data-id="box-2"></div>
-      <div class="box" data-id="box-2"></div>
-    </div>
-  </Slide>
-
-  <Slide animate>
-    <h1>Animate</h1>
-    <div class="row" style="gap: 1rem">
-      <div class="box" data-id="box-1"></div>
-      <div class="box" data-id="box-2"></div>
-      <div class="box" data-id="box-2"></div>
-    </div>
-  </Slide>
-</Slide>
-
-<Slide animate>
-  <Slide animate>
-    <h1>Animate</h1>
-  </Slide>
-
-  <Slide animate>
-    <Code>{snippet}</Code>
-  </Slide>
-</Slide>
+<EndSlides />
