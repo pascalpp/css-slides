@@ -2,13 +2,13 @@
   import { onMount } from 'svelte';
   import { randomHexColor } from './helpers';
 
+  let swatch: HTMLDivElement;
   let color = randomHexColor();
   let animating = false;
 
-  function startAnimating(event: MouseEvent | TouchEvent | KeyboardEvent) {
+  function startAnimating() {
     if (animating) return;
-    const target = event.target as HTMLElement;
-    target.addEventListener('animationend', stopAnimating, { once: true });
+    swatch.addEventListener('animationend', stopAnimating, { once: true });
     animating = true;
   }
 
@@ -19,6 +19,10 @@
   function changeColor() {
     if (animating) return;
     color = randomHexColor();
+    const randomNumberFrom1To10 = Math.ceil(Math.random() * 10);
+    if (randomNumberFrom1To10 === 1) {
+      startAnimating();
+    }
   }
 
   let interval = Math.ceil(Math.random() * 26);
@@ -30,6 +34,7 @@
 </script>
 
 <div
+  bind:this={swatch}
   class="swatch"
   style="--color: {color}"
   on:mouseenter={startAnimating}
