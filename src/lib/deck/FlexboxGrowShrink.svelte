@@ -87,8 +87,10 @@
             </div>
             <div class="fragment wide-content" data-fragment-index="80">
               <p>Suppose some “wide content” is added, squeezing our sidebar.</p>
-              <p class="fragment small" data-fragment-index="90">We can apply flex-shrink to fix this.</p>
-              <p class="fragment small" data-fragment-index="601">Now the sidebar gets the space it wants.</p>
+              <p class="fragment small" data-fragment-index="90">
+                We can apply flex-shrink to fix this <span class="fragment" data-fragment-index="601"
+                  >so the sidebar gets the space it wants.</span>
+              </p>
             </div>
           </div>
         </div>
