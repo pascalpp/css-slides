@@ -9,9 +9,9 @@
       <div class="page">
         <h3>
           &nbsp;
-          <span class="fragment wide-browser">Wide context</span>
-          <span class="fragment narrow-browser">Narrow</span>
-          <span class="fragment sidebar-browser">Sidebar in a wide context</span>
+          <span class="fragment wide-browser">Wide browser</span>
+          <span class="fragment narrow-browser">Narrow browser</span>
+          <span class="fragment sidebar-browser">Narrow context in a wide browser</span>
           &nbsp;
         </h3>
         <div class="panels">
@@ -28,7 +28,8 @@
             <div class="card lion">
               <div class="usage">
                 <div class="fragment custom exclusive">
-                  <h2>Re-use mobile layout</h2>
+                  <p>Container queries let us</p>
+                  <h2 style="margin: 0.5rem 0">re-use mobile layout</h2>
                   <p>in any ‘narrow’ context</p>
                 </div>
                 <div class="fragment custom exclusive">
