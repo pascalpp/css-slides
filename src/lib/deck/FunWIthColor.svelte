@@ -14,10 +14,9 @@
     <div class="page row">
       <div class="left-column">
         <h1>Fun With Color</h1>
-        <h3 class="fragment">Some handy tools:</h3>
+        <p class="fragment">Some handy tools<br />you might not know about:</p>
         <ul>
           <li class="fragment"><code>currentColor</code></li>
-          <li class="fragment"><code>--color-variables</code></li>
           <li class="fragment"><code>color-mix()</code></li>
           <li class="fragment"><code>color-contrast()</code>*</li>
         </ul>
@@ -45,14 +44,16 @@
         <Browser width="500px" title="currentColor example">
           <div class="layout">
             <div class="current-color-layout">
-              <div class="fragment page-color" data-fragment-index="10">
-                <Code>
-                  {`
-                    .page {
-                      color: lime;
-                    }
-                  `}
-                </Code>
+              <div class="relative top">
+                <div class="fragment page-color" data-fragment-index="10">
+                  <Code>
+                    {`
+                      .page {
+                        color: lime;
+                      }
+                    `}
+                  </Code>
+                </div>
               </div>
 
               <div class="user-card">
@@ -66,7 +67,7 @@
                 </div>
               </div>
 
-              <div class="relative">
+              <div class="relative bottom">
                 <div class="fragment custom exclusive" data-fragment-index="20">
                   <Code lines="2">
                     {`
@@ -79,14 +80,16 @@
                 <div class="fragment custom exclusive" data-fragment-index="30">
                   <Code lines="2">
                     {`
-                      .user-title-bar {
-                        background-color: currentColor;
+                      .user-card {
+                        .title-bar {
+                          background-color: currentColor;
+                        }
                       }
                     `}
                   </Code>
                 </div>
                 <div class="fragment custom exclusive" data-fragment-index="40">
-                  <Code>
+                  <Code lines="1">
                     {`
                       <svg stroke="currentColor">
                         <path d="..."></path>
@@ -95,11 +98,29 @@
                   </Code>
                 </div>
                 <div class="fragment custom exclusive" data-fragment-index="50">
-                  <Code>
+                  <Code lines="3">
                     {`
                       .user-card {
                         border-color: currentColor;
                         box-shadow: 0 4px 4px currentColor;
+                      }
+                    `}
+                  </Code>
+                </div>
+                <div class="fragment custom exclusive page-color-gold" data-fragment-index="60">
+                  <Code>
+                    {`
+                      .page {
+                        color: gold;
+                      }
+                    `}
+                  </Code>
+                </div>
+                <div class="fragment custom exclusive page-color-violet" data-fragment-index="70">
+                  <Code>
+                    {`
+                      .page {
+                        color: violet;
                       }
                     `}
                   </Code>
@@ -156,14 +177,26 @@
     height: 55vh;
     display: flex;
     color: var(--color-lime);
+    justify-content: center;
+    align-items: center;
   }
 
   .relative {
     .fragment {
       position: absolute;
-      top: 0%;
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    &.top {
+      .fragment {
+        bottom: 0;
+      }
+    }
+    &.bottom {
+      .fragment {
+        top: 0;
+      }
     }
   }
 </style>

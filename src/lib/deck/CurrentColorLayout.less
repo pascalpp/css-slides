@@ -26,6 +26,10 @@
       gap: 0.5rem;
       font-family: var(--font-sans);
     }
+
+    svg {
+      display: none;
+    }
   }
 
   :has(> .hover-content) {
@@ -42,6 +46,24 @@
     color: var(--color-lime);
   }
 }
+.page:has(.page-color-gold.visible) {
+  .current-color-layout {
+    color: gold;
+
+    .fragment.page-color {
+      opacity: 0;
+    }
+  }
+}
+.page:has(.page-color-violet.visible) {
+  .current-color-layout {
+    color: violet;
+
+    .fragment.page-color {
+      opacity: 0;
+    }
+  }
+}
 .page:has(.border-color.visible) {
   .current-color-layout .user-card {
     border-color: currentColor;
@@ -55,6 +77,7 @@
 .page:has(.svg-fill-stroke.visible) {
   .current-color-layout svg {
     stroke: currentColor;
+    display: block;
   }
 }
 .page:has(.box-shadow.visible) {
