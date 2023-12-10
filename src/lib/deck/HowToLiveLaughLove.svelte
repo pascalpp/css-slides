@@ -10,12 +10,12 @@
       <h3 class="fragment">How to</h3>
       <LiveLaughLove />
       <h3 class="fragment in-css">in CSS</h3>
-      <span class="relative">
+      <!-- <span class="relative">
         <h4 class="fragment blessed">
           #blessed
           <h4 class="fragment vomit">🤮</h4>
         </h4>
-      </span>
+      </span> -->
     </div>
     <div class="name">
       <h4 class="fragment">Pascal · UI Developer · Brooklyn</h4>
@@ -52,48 +52,48 @@
     }
   }
 
-  .blessed {
-    position: absolute;
-    right: 0;
-    top: 0;
-    color: white;
-    transform: translateX(1rem) translateY(2rem) rotate(10deg);
-    padding: 0.25rem 0.5rem;
-    background-color: var(--color-red);
-    border-radius: 4px;
-    &::before {
-      content: '';
-      position: absolute;
-      display: block;
-      left: 0;
-      top: 0;
-      height: 75%;
-      aspect-ratio: 1;
-      transform-origin: bottom center;
-      transform: translateX(-3px) translateY(0.5px) rotate(-45deg);
-      background-color: var(--color-red);
-      border-radius: inherit;
-      z-index: -1;
-    }
-    &:after {
-      content: '';
-      position: absolute;
-      display: block;
-      left: 0;
-      top: 50%;
-      transform: translateX(-12px) translateY(-50%);
-      height: 12px;
-      aspect-ratio: 1;
-      background-color: black;
-      border-radius: 50%;
-    }
-  }
+  // .blessed {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   color: white;
+  //   transform: translateX(1rem) translateY(2rem) rotate(10deg);
+  //   padding: 0.25rem 0.5rem;
+  //   background-color: var(--color-red);
+  //   border-radius: 4px;
+  //   &::before {
+  //     content: '';
+  //     position: absolute;
+  //     display: block;
+  //     left: 0;
+  //     top: 0;
+  //     height: 75%;
+  //     aspect-ratio: 1;
+  //     transform-origin: bottom center;
+  //     transform: translateX(-3px) translateY(0.5px) rotate(-45deg);
+  //     background-color: var(--color-red);
+  //     border-radius: inherit;
+  //     z-index: -1;
+  //   }
+  //   &:after {
+  //     content: '';
+  //     position: absolute;
+  //     display: block;
+  //     left: 0;
+  //     top: 50%;
+  //     transform: translateX(-12px) translateY(-50%);
+  //     height: 12px;
+  //     aspect-ratio: 1;
+  //     background-color: black;
+  //     border-radius: 50%;
+  //   }
+  // }
 
-  .vomit {
-    position: absolute;
-    right: 0;
-    top: 0;
-    color: white;
-    transform: translateX(1rem) translateY(2rem) rotate(-5deg);
-  }
+  // .vomit {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   color: white;
+  //   transform: translateX(1rem) translateY(2rem) rotate(-5deg);
+  // }
 </style>
