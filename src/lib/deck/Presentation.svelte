@@ -11,10 +11,12 @@
   import FlexboxBasics from './FlexboxBasics.svelte';
   import FlexboxGrowShrink from './FlexboxGrowShrink.svelte';
   import IsWhereNotHas from './IsWhereNotHas.svelte';
+  import FunWIthColor from './FunWIthColor.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
 <HowToLiveLaughLove />
+<FunWIthColor />
 
 <section>
   <FlexboxBasics />
