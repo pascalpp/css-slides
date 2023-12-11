@@ -2,7 +2,7 @@
   <div class="box wrapper">
     <h1>Container Queries</h1>
     <ul class="fragment">
-      <li>Like media queries</li>
+      <li>Like <code>@media</code> queries</li>
       <li class="fragment">But viewport-agnostic</li>
       <li class="fragment">And element-specific</li>
       <li class="fragment">
