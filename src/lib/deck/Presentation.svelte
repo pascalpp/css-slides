@@ -11,12 +11,15 @@
   import EndSlides from './EndSlides.svelte';
   import WhatIsCss from './WhatIsCss.svelte';
   import Slide from './Slide.svelte';
+  import BeforeCss2 from './BeforeCss2.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
 <HowToLiveLaughLove />
 
 <WhatIsCss />
+
+<BeforeCss2 />
 
 <FunWIthColor />
 
