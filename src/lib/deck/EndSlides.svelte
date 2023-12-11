@@ -3,6 +3,12 @@
 </script>
 
 <Slide>
+  <p><em>In conclusion,</em></p>
+  <h1 class="fragment">I ❤️ CSS</h1>
+  <p class="fragment"><em>and so should you!</em></p>
+</Slide>
+
+<Slide>
   <div class="box wrapper">
     <h1>Q&A</h1>
   </div>
