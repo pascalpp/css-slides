@@ -69,22 +69,15 @@
           <ChatBox />
         </div>
         <div class="pane detail">
-          <h2>Here’s a box</h2>
+          <h2>Here’s our sidebar</h2>
           <div class="fragment height-100percent-fragment">
-            <p>Let’s set the height to 100%</p>
-            <Code lines="2">
-              {`
-                .box {
-                  height: 100%;
-                }
-              `}
-            </Code>
-            <p class="fragment show-chat-fragment">and show some UI in the box.</p>
+            <p>It fills the height of its parent,<br />thanks to <code>align-items: stretch</code>.</p>
+            <p class="fragment show-chat-fragment">Let’s show a chat UI in the box.</p>
             <p class="fragment theres-a-problem">But there’s a problem!</p>
             <div class="relative">
               <div class="fragment scared-rabbit-box column">
                 <p>
-                  Our layout is broken, and Roger Rabbit has been missing some important messages from Eddie Valiant!
+                  The layout is broken, and Roger Rabbit has been missing some important messages from Eddie Valiant!
                 </p>
                 <div class="box scared-rabbit fragment"></div>
               </div>
@@ -107,7 +100,7 @@
         </div>
         <div class="pane detail">
           <h2>How do we fix this?</h2>
-          <p class="fragment">Add another height: 100%?</p>
+          <p class="fragment">Let’s try <code>height: 100%</code>:</p>
           <div class="fragment chat-ui-100">
             <Code lines="2">
               {`
@@ -336,11 +329,11 @@
         <div class="pane detail spread">
           <h3>Let’s fix it with flex!</h3>
           <div>
-            <p>3. Make the parent a flex column</p>
+            <p>3. Make the sidebar a flex column</p>
             <div class="fragment flex-column-fragment">
               <Code lines="2,3">
                 {`
-                  .box {
+                  .pane.sidebar {
                     display: flex;
                     flex-direction: column;
                   }
@@ -430,7 +423,7 @@
     left: 0;
     top: 0;
     width: 400px;
-    transform: translateY(165px);
+    transform: translateY(190px);
     p {
       width: 370px;
       font-size: 0.9em;
