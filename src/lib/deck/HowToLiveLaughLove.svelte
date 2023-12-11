@@ -17,8 +17,9 @@
         </h4>
       </span> -->
     </div>
-    <div class="name">
-      <h4 class="fragment">Pascal · UI Developer · Brooklyn</h4>
+    <div class="name fragment">
+      <h4>Pascal · Senior UI Developer</h4>
+      <p class="small">@strict-innovators · Brooklyn</p>
     </div>
   </div>
 </Slide>
@@ -31,6 +32,10 @@
 
   .name {
     margin-left: 4rem;
+    h4,
+    p {
+      margin: 0;
+    }
   }
 
   .row {
