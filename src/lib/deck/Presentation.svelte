@@ -10,6 +10,7 @@
   import FunWIthColor from './FunWIthColor.svelte';
   import EndSlides from './EndSlides.svelte';
   import WhatIsCss from './WhatIsCss.svelte';
+  import Slide from './Slide.svelte';
 </script>
 
 <TheGoodTheBadTheBeautiful />
@@ -19,17 +20,17 @@
 
 <FunWIthColor />
 
-<section>
+<Slide>
   <FlexboxBasics />
   <FlexboxGrowShrink />
   <FlexboxHeight />
-</section>
+</Slide>
 
 <IsWhereNotHas />
 
-<section>
+<Slide>
   <ContainerQueriesBasics />
   <ContainerQueriesUsage />
-</section>
+</Slide>
 
 <EndSlides />
