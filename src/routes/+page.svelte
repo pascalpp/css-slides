@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-  <title>Slides</title>
+  <title>CSS: The Good, the Bad, the U̶g̶l̶y̶ Beautiful</title>
 </svelte:head>
 
 <Reveal>
