@@ -54,7 +54,7 @@
             <Code lines="2">
               {`
                 .pane.sidebar {
-                  width: 300px;
+                  width: 400px;
                 }
               `}
             </Code>
@@ -63,7 +63,7 @@
             <Code lines="3">
               {`
                 .pane.sidebar {
-                  width: 300px;
+                  width: 400px;
                   flex-shrink: 0;
                 }
               `}
@@ -181,7 +181,7 @@
     }
 
     &:has(.fragment.visible) {
-      width: 300px;
+      width: 325px;
     }
     .pane-style-2 {
       display: none;
