@@ -5,6 +5,7 @@
   import SwatchGrid from './SwatchGrid.svelte';
   import UserIcon from './user.svg?component';
   import Code from './Code.svelte';
+  import ColorContrastCard from './ColorContrastCard.svelte';
 </script>
 
 <Slide animate>
@@ -156,7 +157,7 @@
     </div>
   </Slide>
 
-  <Slide animate>
+  <Slide>
     <div class="page row color-mix-slide">
       <div class="left-column">
         <div class="page-color visible" />
@@ -339,6 +340,43 @@
       </div>
     </div>
   </Slide>
+
+  <Slide>
+    <div class="page row color-contrast-slide">
+      <div class="left-column">
+        <h3><code>color-contrast()</code>*</h3>
+        <p class="small fragment" data-fragment-index="10">
+          Automatically select the color with the highest contrast ratio.
+        </p>
+        <h3 class="small fragment" data-fragment-index="30">* Caveat</h3>
+        <p class="small fragment" data-fragment-index="40">
+          This feature has been supported in Safari since 2021, but it’s still behind a feature flag.
+        </p>
+        <p class="small fragment" data-fragment-index="50">
+          Still waiting on support from Chrome, Firefox, and Edge. 🤔
+        </p>
+      </div>
+      <div class="right-column">
+        <Browser width="500px" title="color-contrast() example">
+          <div class="layout column">
+            <ColorContrastCard />
+            <div class="fragment" data-fragment-index="20">
+              <Code lines="2-5">
+                {`
+                  .color-contrast-card {
+                    background-color: var(--color);
+                    color: color-contrast(
+                      var(--color) vs black, white
+                    );
+                  }
+                `}
+              </Code>
+            </div>
+          </div>
+        </Browser>
+      </div>
+    </div>
+  </Slide>
 </Slide>
 
 <style lang="less">
@@ -394,5 +432,12 @@
   .caution-box {
     padding: 1rem;
     margin-top: 2rem;
+  }
+
+  .color-contrast-slide {
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
   }
 </style>
