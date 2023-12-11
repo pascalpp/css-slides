@@ -15,7 +15,10 @@
         <h1>Thank you!</h1>
         <p class="small">Use this QR code for feedback:</p>
       </div>
-      <p class="small created-with">Created with SvelteKit and reveal.js</p>
+      <div>
+        <p class="small created-with">Created with SvelteKit and reveal.js</p>
+        <p class="small"><a href="https://css-slides.vercel.app">https://css-slides.vercel.app</a></p>
+      </div>
     </div>
     <div class="right column">
       <div class="box wrapper">
