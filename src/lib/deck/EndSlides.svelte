@@ -47,4 +47,9 @@
   .created-with {
     color: color-mix(in srgb, currentColor 50%, transparent);
   }
+
+  img {
+    max-width: unset;
+    max-height: unset;
+  }
 </style>
