@@ -27,9 +27,7 @@
       </div>
     </div>
     <div class="right column">
-      <div class="box wrapper">
-        <img src="./qr-code.png" alt="QR code" width="400" height="400" />
-      </div>
+      <img src="./qr-code.png" alt="QR code" width="400" height="400" />
     </div>
   </div>
 </Slide>
