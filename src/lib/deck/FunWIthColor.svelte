@@ -29,7 +29,8 @@
       <div class="left-column">
         <h2><code>currentcolor</code></h2>
         <p class="small fragment" data-fragment-index="1">
-          The first “CSS variable”, equal to the text color inherited from the parent.
+          The first “CSS variable<span style="letter-spacing: -0.2em; margin-right: 0.2em">,”</span> equal to the text color
+          inherited from the parent.
         </p>
         <p class="small fragment" data-fragment-index="19">
           Allows us to reuse the inherited color for other properties, like:
