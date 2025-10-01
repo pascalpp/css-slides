@@ -32,7 +32,7 @@
     .swatch {
       background-color: var(--color);
       transition: all 0.5s ease-out;
-      color: color-contrast(var(--color) vs black, white);
+      color: contrast-color(var(--color));
       padding: 0;
       display: block;
       font-size: 48px;

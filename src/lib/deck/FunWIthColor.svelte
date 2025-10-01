@@ -17,7 +17,7 @@
         <ul>
           <li class="fragment"><code>currentcolor</code></li>
           <li class="fragment"><code>color-mix()</code></li>
-          <li class="fragment"><code>color-contrast()</code>*</li>
+          <li class="fragment"><code>contrast-color()</code>*</li>
         </ul>
       </div>
       <div class="right-column"><SwatchGrid /></div>
@@ -343,9 +343,9 @@
   </Slide>
 
   <Slide>
-    <div class="page row color-contrast-slide">
+    <div class="page row contrast-color-slide">
       <div class="left-column">
-        <h3><code>color-contrast()</code>*</h3>
+        <h3><code>contrast-color()</code>*</h3>
         <p class="small fragment" data-fragment-index="10">
           Automatically select the color with the highest contrast ratio.
         </p>
@@ -358,17 +358,15 @@
         </p>
       </div>
       <div class="right-column">
-        <Browser width="500px" title="color-contrast() example">
+        <Browser width="500px" title="contrast-color() example">
           <div class="layout column">
             <ColorContrastCard />
             <div class="fragment" data-fragment-index="20">
               <Code lines="2-5">
                 {`
-                  .color-contrast-card {
+                  .contrast-color-card {
                     background-color: var(--color);
-                    color: color-contrast(
-                      var(--color) vs black, white
-                    );
+                    color: contrast-color(var(--color));
                   }
                 `}
               </Code>
@@ -435,7 +433,7 @@
     margin-top: 2rem;
   }
 
-  .color-contrast-slide {
+  .contrast-color-slide {
     h3 {
       margin-top: 2rem;
       margin-bottom: 0;
