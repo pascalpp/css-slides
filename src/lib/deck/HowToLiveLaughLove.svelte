@@ -18,8 +18,8 @@
       </span> -->
     </div>
     <div class="name fragment">
-      <h4>Pascal · Senior UI Developer</h4>
-      <p class="small">@strict-innovators · Brooklyn</p>
+      <h4>Pascal · Frontend Developer</h4>
+      <p class="small">Brooklyn</p>
     </div>
   </div>
 </Slide>
