@@ -347,7 +347,7 @@
       <div class="left-column">
         <h3><code>contrast-color()</code>*</h3>
         <p class="small fragment" data-fragment-index="10">
-          Automatically select the color with the highest contrast ratio.
+          Automatically use a color with the highest contrast ratio.
         </p>
         <h3 class="small fragment" data-fragment-index="30">* Caveat</h3>
         <p class="small fragment" data-fragment-index="40">

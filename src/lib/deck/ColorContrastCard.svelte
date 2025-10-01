@@ -7,15 +7,23 @@
   }
 
   let color = randomHexColor();
+  let showText = false;
 
   onMount(() => {
     const timer = setInterval(changeColor, 1500);
     return () => clearInterval(timer);
   });
+
+  onMount(() => {
+    const timer = setTimeout(() => {
+      showText = true;
+    }, 4000);
+    return () => clearTimeout(timer);
+  });
 </script>
 
 <div class="color-card row" style="--color: {color}">
-  <button class="swatch" on:click={changeColor}>Text color</button>
+  <button class="swatch" on:click={changeColor} class:show-text={showText}>Text color</button>
 </div>
 
 <style lang="less">
@@ -30,9 +38,12 @@
     color: var(--color);
 
     .swatch {
+      color: transparent;
+      &.show-text {
+        color: contrast-color(var(--color));
+      }
       background-color: var(--color);
       transition: all 0.5s ease-out;
-      color: contrast-color(var(--color));
       padding: 0;
       display: block;
       font-size: 48px;
