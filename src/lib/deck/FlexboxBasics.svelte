@@ -71,8 +71,8 @@
             <button on:click={startJustifyCycle}>justify-content:</button><br />
             <span class="indent nowrap small">
               {#each justifyValues as value}
-                <button on:click={() => setJustify(value)} class:active={justify === value}>{value}</button>
-                |
+                <button on:click={() => setJustify(value)} class="divided-value" class:active={justify === value}
+                  >{value}</button>
               {/each}
               …
             </span>
@@ -81,8 +81,8 @@
             <button on:click={startAlignCycle}>align-items:</button><br />
             <span class="indent small">
               {#each alignValues as value}
-                <button on:click={() => setAlign(value)} class:active={align === value}>{value}</button>
-                |
+                <button on:click={() => setAlign(value)} class="divided-value" class:active={align === value}
+                  >{value}</button>
               {/each}
               …
             </span>
@@ -129,6 +129,19 @@
     &.active {
       text-decoration: underline;
       text-underline-offset: 6px;
+    }
+    &.divided-value:not(:first-child) {
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        background-color: currentcolor;
+        height: 1.25em;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        text-decoration: none;
+        transform: translateY(0.25em);
+      }
     }
   }
 
