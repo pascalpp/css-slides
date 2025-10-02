@@ -15,21 +15,9 @@
 </Slide>
 
 <Slide>
-  <div class="row" style="gap: 2em">
-    <div class="left column">
-      <div>
-        <h1>Thank you!</h1>
-        <p class="small">Use this QR code for feedback:</p>
-      </div>
-      <div>
-        <p class="small created-with">Created with SvelteKit and reveal.js</p>
-        <p class="small"><a href="https://css-slides.vercel.app">https://css-slides.vercel.app</a></p>
-      </div>
-    </div>
-    <div class="right column">
-      <img src="./qr-code.png" alt="QR code" width="400" height="400" />
-    </div>
-  </div>
+  <h1>Thank you!</h1>
+  <p class="small created-with">Created with SvelteKit and reveal.js</p>
+  <p class="small"><a href="https://css-slides.pascal.com">https://css-slides.pascal.com</a></p>
 </Slide>
 
 <style lang="less">
