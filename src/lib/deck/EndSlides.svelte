@@ -21,21 +21,7 @@
 </Slide>
 
 <style lang="less">
-  .row {
-    align-items: stretch;
-  }
-
-  .left.column {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    justify-content: space-between;
-  }
   .created-with {
     color: color-mix(in srgb, currentColor 50%, transparent);
-  }
-
-  img {
-    max-width: unset;
-    max-height: unset;
   }
 </style>
